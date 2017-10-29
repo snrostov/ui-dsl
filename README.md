@@ -381,7 +381,7 @@ class MyCounter(key: String, override val initialState: Int) : Widget<Int>(key) 
 Как было обозначено выше, само состояние хранится в скрытой от пользователя обертке (`Box`).
 Вызовы методов `updateState` делегируются `Box`-у, который является инстансом `Rect.Component`.
 
-При вызове `updateState` реакт запустить `Box.render`, который вызывает `Wdiget.render(state)`. 
+При вызове `updateState` реакт запустит `Box.render`, который вызывает `Wdiget.render(state)`. 
 
 ### BoxData
 
