@@ -1,6 +1,5 @@
 package examples.p02_hello_widget_body
 
-import cx.js.ui.framework.widgets.common.Box
 import cx.js.ui.framework.widgets.common.Text
 import cx.js.ui.framework.widgets.common.layout.Column
 import cx.js.ui.framework.widgets.common.layout.Row
@@ -18,7 +17,7 @@ fun render() = Column {
 }
 
 class Section(key: Any?, val title: String, val body: WidgetBody) : StatelessWidget(key) {
-  override fun render() = Box {
+  override fun render() = Column {
     +Header("title", title)
     +body
   }

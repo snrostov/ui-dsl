@@ -5,7 +5,7 @@ import cx.js.ui.framework.widgets.RenderObject
 import cx.js.ui.framework.widgets.css.css
 import cx.js.ui.framework.widgets.css.cssPx
 import cx.js.ui.framework.widgets.css.toBackgroundCss
-import cx.js.ui.framework.widgets.singleOrNull
+import cx.js.ui.framework.widgets.elementsArray
 import cx.ui.framework.WidgetBody
 import cx.ui.framework.widget.StatelessWidget
 import flutter.*
@@ -84,8 +84,6 @@ class Box(
     val transform: Matrix? = null,
     val body: WidgetBody = { }
 ) : StatelessWidget(key) {
-  val child: RenderObject? = singleOrNull(body)
-
   override fun render(): RenderObject? {
     val propsStyle = dynamicObj() {
       it.display = "inline-block"
@@ -115,7 +113,7 @@ class Box(
     return React.createElement(
         "div",
         props,
-        child
+        *elementsArray(body)
     )
   }
 

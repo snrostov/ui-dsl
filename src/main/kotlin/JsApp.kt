@@ -16,7 +16,8 @@ fun main(args: Array<String>) {
 }
 
 class JsApp : Widget<String>("app") {
-  val url = document.location?.hash?.trim()?.replace("-", " ")
+  val url = document.location?.hash?.trim()
+      ?.substring(1)?.replace("-", " ")
 
   override val initialState: String
     get() = if (url in samples) {
