@@ -1082,15 +1082,15 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   function JsApp() {
     JsApp$Companion_getInstance();
     Widget.call(this, 'app');
-    var tmp$, tmp$_0, tmp$_1;
-    var tmp$_2;
+    var tmp$, tmp$_0, tmp$_1, tmp$_2;
+    var tmp$_3;
     if ((tmp$_0 = (tmp$ = document.location) != null ? tmp$.hash : null) != null) {
-      var tmp$_3;
-      tmp$_2 = trim(Kotlin.isCharSequence(tmp$_3 = tmp$_0) ? tmp$_3 : throwCCE()).toString();
+      var tmp$_4;
+      tmp$_3 = trim(Kotlin.isCharSequence(tmp$_4 = tmp$_0) ? tmp$_4 : throwCCE()).toString();
     }
      else
-      tmp$_2 = null;
-    this.url = (tmp$_1 = tmp$_2) != null ? replace(tmp$_1, '-', ' ') : null;
+      tmp$_3 = null;
+    this.url = (tmp$_2 = (tmp$_1 = tmp$_3) != null ? tmp$_1.substring(1) : null) != null ? replace(tmp$_2, '-', ' ') : null;
   }
   var Map = Kotlin.kotlin.collections.Map;
   Object.defineProperty(JsApp.prototype, 'initialState', {get: function () {
@@ -1689,13 +1689,9 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     this.margin = margin;
     this.transform = transform;
     this.body = body;
-    var items = this.body;
-    var builder = new ReactElementsListBuilder();
-    items(builder);
-    this.child = builder.singleOrNull;
   }
   Box_0.prototype.render = function () {
-    var tmp$;
+    var tmp$, tmp$_0;
     var obj = {};
     obj.display = 'inline-block';
     var propsStyle = obj;
@@ -1715,7 +1711,13 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     if (this.transform != null) {
       propsStyle.transform = get_css_5(this.transform);
     }
-    return $module$react_0.createElement('div', props, this.child);
+    var tmp$_1 = (tmp$_0 = $module$react_0).createElement;
+    var tmp$_2 = ['div', props];
+    var tmp$_3 = tmp$_2.concat;
+    var items = this.body;
+    var builder = new ReactElementsListBuilder();
+    items(builder);
+    return tmp$_1.apply(tmp$_0, tmp$_3.call(tmp$_2, builder.array));
   };
   var NotImplementedError_init = Kotlin.kotlin.NotImplementedError;
   Box_0.prototype.applyConstraints_0 = function (constraints, propsStyle) {
@@ -2463,15 +2465,26 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     this.title = title;
     this.body = body;
   }
-  function Section$render$lambda(this$Section) {
-    return function ($receiver) {
-      $receiver.unaryPlus_ucfgjj$(new Header_0('title', this$Section.title));
-      this$Section.body($receiver);
-      return Unit;
-    };
-  }
   Section.prototype.render = function () {
-    return new Box_0(void 0, void 0, void 0, void 0, void 0, void 0, Section$render$lambda(this));
+    MainAxisAlignment.start;
+    MainAxisSize.max;
+    CrossAxisAlignment.start;
+    TextDirection.ltr;
+    VerticalDirection.down;
+    TextBaseline.alphabetic;
+    var tmp$;
+    var obj = {};
+    var propsStyle = obj;
+    var obj_0 = {};
+    obj_0.style = propsStyle;
+    var props = obj_0;
+    var tmp$_0 = (tmp$ = React).createElement;
+    var tmp$_1 = ['div', props];
+    var tmp$_2 = tmp$_1.concat;
+    var builder = new ReactElementsListBuilder();
+    builder.unaryPlus_ucfgjj$(new Header_0('title', this.title));
+    this.body(builder);
+    return tmp$_0.apply(tmp$, tmp$_2.call(tmp$_1, builder.array));
   };
   Section.$metadata$ = {kind: Kind_CLASS, simpleName: 'Section', interfaces: [StatelessWidget]};
   function Header_0(key, text) {
