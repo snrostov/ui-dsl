@@ -22,7 +22,7 @@ class JsApp : Widget<String>("app") {
     get() = if (url in samples) {
       url!!
     } else {
-      document.location!!.hash = samples.keys.first()
+      document.location!!.hash = samples.keys.first().replace(" ", "-")
       samples.keys.first()
     }
 
