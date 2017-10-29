@@ -32,11 +32,20 @@ inline fun Text(
   val props = buildProps<dynamic> {
     it.style = propsStyle
   }
-
-  if (color != null) {
-    propsStyle.color = color.hex
+  if (key != null) {
+    props.key = key
   }
-  style?.toReactProps(propsStyle)
+
+  (style ?: TextStyle()).copy(
+      color = color,
+      fontSize = fontSize,
+      fontFamily = fontFamily,
+      letterSpacing = letterSpacing,
+      wordSpacing = wordSpacing,
+      lineHeight = lineHeight,
+      decoration = decoration
+  ).toReactProps(propsStyle)
+
   align?.toReactProps(propsStyle)
   direction?.toReactProps(propsStyle)
   if (softWrap) TODO()

@@ -32,7 +32,7 @@ abstract class WidgetsListBuilder {
   operator fun Number.unaryPlus() = add(this)
 
   inline operator fun WidgetBody.unaryPlus()
-      = this(this@WidgetsListBuilder)
+      = this@unaryPlus(this@WidgetsListBuilder)
 
   operator fun Var<String>.unaryPlus() = add(Label(null, this))
 

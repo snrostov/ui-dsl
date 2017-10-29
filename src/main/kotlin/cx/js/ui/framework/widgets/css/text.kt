@@ -6,7 +6,8 @@ import flutter.TextOverflow
 import flutter.TextStyle
 
 fun TextStyle.toReactProps(props: dynamic) {
-  TODO("not implemented")
+  if (color != null) props.color = color.css
+  if (fontSize != null) props.fontSize = fontSize
 }
 
 

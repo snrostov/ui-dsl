@@ -15,12 +15,14 @@ inline fun HRef(
 
 inline fun Button(
     key: String? = null,
-    noinline onClick: () -> Unit,
+    disabled: Boolean? = null,
+    noinline onClick: () -> Unit = { },
     body: WidgetBody = { }
 ): ReactElement = React.createElement(
     "button",
     buildProps {
       it.onClick = onClick
+      it.disabled = disabled
     },
     *elementsArray(body)
 )

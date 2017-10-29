@@ -1,4 +1,4 @@
-package react.p04_hello_box
+package examples.p04_hello_box
 
 import cx.js.kotlin.*
 import cx.js.ui.framework.widgets.RenderObject
@@ -17,13 +17,7 @@ import react.React
 import react.element
 import kotlin.browser.document
 
-fun main(args: Array<String>) {
-  val container = document.getElementById("content")!!
-
-  render(container) {
-    +Sample()
-  }
-}
+fun render() = Sample()
 
 class Sample : Widget<JsTimeFormat>(null) {
   override val initialState: JsTimeFormat
@@ -85,7 +79,7 @@ class SimpleClock(
   }
 
   override fun dispose() {
-    clearInterval(timeId)
+    clearInterval(timeId!!)
     console.log("SimpleClock: timer destroyed")
   }
 }

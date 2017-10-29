@@ -1,4 +1,4 @@
-package react.p03_hello_state
+package examples.p03_hello_state
 
 import cx.js.ui.framework.widgets.RenderObject
 import cx.js.ui.framework.widgets.common.Box
@@ -6,20 +6,15 @@ import cx.js.ui.framework.widgets.common.Margin
 import cx.js.ui.framework.widgets.common.Padding
 import cx.js.ui.framework.widgets.common.Text
 import cx.js.ui.framework.widgets.common.actions.Button
+import cx.js.ui.framework.widgets.common.layout.Column
 import cx.js.ui.framework.widgets.common.layout.Row
-import cx.js.ui.framework.widgets.dom.render
 import cx.ui.framework.widget.Widget
 import flutter.Border
 import flutter.TextAlign
-import kotlin.browser.document
 
-fun main(args: Array<String>) {
-  val container = document.getElementById("content")!!
-
-  render(container) {
-    +MyCounter("counter1", 1)
-    +MyCounter("counter2", 2)
-  }
+fun render() = Column {
+  +MyCounter("counter1", 1)
+  +MyCounter("counter2", 2)
 }
 
 class MyCounter(key: String, override val initialState: Int) : Widget<Int>(key) {
@@ -37,7 +32,7 @@ class MyCounter(key: String, override val initialState: Int) : Widget<Int>(key) 
 
       +Text(align = TextAlign.center) {
         +Box(width = 50.0) {
-          +state
+          +"$state"
         }
       }
 

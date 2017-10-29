@@ -31,15 +31,14 @@ if (PRODUCTION) {
 }
 
 
-const moduleName = 'cx.js.ui';
+const moduleName = 'ui';
 
 // build list of aliases
 const aliases = {};
 const compiledDir = path.resolve(__dirname, 'build/classes/kotlin/main/min') + '/';
 // todo: maybe read from files list ay compiledDir
 let deps = [
-    'kotlin',
-    'cx.system'
+    'kotlin'
 ];
 for (let dep of deps) {
     aliases[dep] = compiledDir + dep + '.js'
