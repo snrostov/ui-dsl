@@ -1242,86 +1242,6 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   }
   JsApp.$metadata$ = {kind: Kind_CLASS, simpleName: 'JsApp', interfaces: [Widget]};
   var SafeContinuation_init = Kotlin.kotlin.coroutines.experimental.SafeContinuation_init_n4f53e$;
-  function JsTimeFormat(timeZone, hour12, hour, minute, second, timeZoneName) {
-    if (timeZone === void 0)
-      timeZone = null;
-    if (hour12 === void 0)
-      hour12 = false;
-    if (hour === void 0)
-      hour = '2-digit';
-    if (minute === void 0)
-      minute = '2-digit';
-    if (second === void 0)
-      second = '2-digit';
-    if (timeZoneName === void 0)
-      timeZoneName = null;
-    this.timeZone_ln95a7$_0 = timeZone;
-    this.hour12_4yin3f$_0 = hour12;
-    this.hour_stxjl6$_0 = hour;
-    this.minute_5jo8m2$_0 = minute;
-    this.second_9f9892$_0 = second;
-    this.timeZoneName_qa614m$_0 = timeZoneName;
-  }
-  Object.defineProperty(JsTimeFormat.prototype, 'timeZone', {get: function () {
-    return this.timeZone_ln95a7$_0;
-  }});
-  Object.defineProperty(JsTimeFormat.prototype, 'hour12', {get: function () {
-    return this.hour12_4yin3f$_0;
-  }});
-  Object.defineProperty(JsTimeFormat.prototype, 'hour', {get: function () {
-    return this.hour_stxjl6$_0;
-  }});
-  Object.defineProperty(JsTimeFormat.prototype, 'minute', {get: function () {
-    return this.minute_5jo8m2$_0;
-  }});
-  Object.defineProperty(JsTimeFormat.prototype, 'second', {get: function () {
-    return this.second_9f9892$_0;
-  }});
-  Object.defineProperty(JsTimeFormat.prototype, 'timeZoneName', {get: function () {
-    return this.timeZoneName_qa614m$_0;
-  }});
-  JsTimeFormat.$metadata$ = {kind: Kind_CLASS, simpleName: 'JsTimeFormat', interfaces: []};
-  JsTimeFormat.prototype.component1 = function () {
-    return this.timeZone;
-  };
-  JsTimeFormat.prototype.component2 = function () {
-    return this.hour12;
-  };
-  JsTimeFormat.prototype.component3 = function () {
-    return this.hour;
-  };
-  JsTimeFormat.prototype.component4 = function () {
-    return this.minute;
-  };
-  JsTimeFormat.prototype.component5 = function () {
-    return this.second;
-  };
-  JsTimeFormat.prototype.component6 = function () {
-    return this.timeZoneName;
-  };
-  JsTimeFormat.prototype.copy_z8ena2$ = function (timeZone, hour12, hour, minute, second, timeZoneName) {
-    return new JsTimeFormat(timeZone === void 0 ? this.timeZone : timeZone, hour12 === void 0 ? this.hour12 : hour12, hour === void 0 ? this.hour : hour, minute === void 0 ? this.minute : minute, second === void 0 ? this.second : second, timeZoneName === void 0 ? this.timeZoneName : timeZoneName);
-  };
-  JsTimeFormat.prototype.toString = function () {
-    return 'JsTimeFormat(timeZone=' + Kotlin.toString(this.timeZone) + (', hour12=' + Kotlin.toString(this.hour12)) + (', hour=' + Kotlin.toString(this.hour)) + (', minute=' + Kotlin.toString(this.minute)) + (', second=' + Kotlin.toString(this.second)) + (', timeZoneName=' + Kotlin.toString(this.timeZoneName)) + ')';
-  };
-  JsTimeFormat.prototype.hashCode = function () {
-    var result = 0;
-    result = result * 31 + Kotlin.hashCode(this.timeZone) | 0;
-    result = result * 31 + Kotlin.hashCode(this.hour12) | 0;
-    result = result * 31 + Kotlin.hashCode(this.hour) | 0;
-    result = result * 31 + Kotlin.hashCode(this.minute) | 0;
-    result = result * 31 + Kotlin.hashCode(this.second) | 0;
-    result = result * 31 + Kotlin.hashCode(this.timeZoneName) | 0;
-    return result;
-  };
-  JsTimeFormat.prototype.equals = function (other) {
-    return this === other || (other !== null && (typeof other === 'object' && (Object.getPrototypeOf(this) === Object.getPrototypeOf(other) && (Kotlin.equals(this.timeZone, other.timeZone) && Kotlin.equals(this.hour12, other.hour12) && Kotlin.equals(this.hour, other.hour) && Kotlin.equals(this.minute, other.minute) && Kotlin.equals(this.second, other.second) && Kotlin.equals(this.timeZoneName, other.timeZoneName)))));
-  };
-  function get_checked($receiver) {
-    var tmp$, tmp$_0, tmp$_1;
-    return (tmp$_1 = (tmp$_0 = Kotlin.isType(tmp$ = $receiver.target, HTMLInputElement) ? tmp$ : null) != null ? tmp$_0.checked : null) != null ? tmp$_1 : false;
-  }
   var copyToArray = Kotlin.kotlin.collections.copyToArray;
   var collectionSizeOrDefault = Kotlin.kotlin.collections.collectionSizeOrDefault_ba2ldo$;
   var ArrayList_init = Kotlin.kotlin.collections.ArrayList_init_ww73n8$;
@@ -2148,9 +2068,12 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   };
   StatelessWidget.$metadata$ = {kind: Kind_CLASS, simpleName: 'StatelessWidget', interfaces: [Widget]};
   function Widget(key) {
-    this.key = key;
+    this.key_7psmxg$_0 = key;
     this._box_qaz6ub$_rrfctt$_0 = this._box_qaz6ub$_rrfctt$_0;
   }
+  Object.defineProperty(Widget.prototype, 'key', {get: function () {
+    return this.key_7psmxg$_0;
+  }});
   Object.defineProperty(Widget.prototype, '_box_qaz6ub$_0', {get: function () {
     if (this._box_qaz6ub$_rrfctt$_0 == null)
       return throwUPAE('_box');
@@ -2315,12 +2238,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     if (null != null) {
       var builder_2 = new ReactElementsListBuilder();
       builder_2.unaryPlus_pdl1vz$('Example 1');
-      var tmp$_11;
-      if (builder_2.moreThenOne)
-        tmp$_11 = builder_2.array;
-      else
-        tmp$_11 = builder_2.firstOrNull;
-      if (!(tmp$_11 == null)) {
+      if (!(builder_2.singleOrNull == null)) {
         var message = 'When text is provided body should be empty';
         throw new IllegalArgumentException_init(message.toString());
       }
@@ -2413,12 +2331,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     if (null != null) {
       var builder_1 = new ReactElementsListBuilder();
       builder_1.unaryPlus_pdl1vz$(this.text);
-      var tmp$_7;
-      if (builder_1.moreThenOne)
-        tmp$_7 = builder_1.array;
-      else
-        tmp$_7 = builder_1.firstOrNull;
-      if (!(tmp$_7 == null)) {
+      if (!(builder_1.singleOrNull == null)) {
         var message = 'When text is provided body should be empty';
         throw new IllegalArgumentException_init(message.toString());
       }
@@ -2543,12 +2456,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     if (null != null) {
       var builder_1 = new ReactElementsListBuilder();
       builder_1.unaryPlus_pdl1vz$(this.text);
-      var tmp$_7;
-      if (builder_1.moreThenOne)
-        tmp$_7 = builder_1.array;
-      else
-        tmp$_7 = builder_1.firstOrNull;
-      if (!(tmp$_7 == null)) {
+      if (!(builder_1.singleOrNull == null)) {
         var message = 'When text is provided body should be empty';
         throw new IllegalArgumentException_init(message.toString());
       }
@@ -2674,12 +2582,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
         maxWidth = kotlin_js_internal_DoubleCompanionObject.POSITIVE_INFINITY;
         maxHeight = kotlin_js_internal_DoubleCompanionObject.POSITIVE_INFINITY;
         builder_2.unaryPlus_ucfgjj$(new Box_0(null, null, new BoxDecoration(null, null, null, join(null, null), null, null), new BoxConstraints(50.0 != null ? 50.0 : 0.0, 50.0 != null ? 50.0 : maxWidth, null != null ? null : 0.0, null != null ? null : maxHeight), null, null, MyCounter$render$lambda$lambda$lambda$lambda(closure$state_0)));
-        var tmp$_11;
-        if (builder_2.moreThenOne)
-          tmp$_11 = builder_2.array;
-        else
-          tmp$_11 = builder_2.firstOrNull;
-        if (!(tmp$_11 == null)) {
+        if (!(builder_2.singleOrNull == null)) {
           var message = 'When text is provided body should be empty';
           throw new IllegalArgumentException_init(message.toString());
         }
@@ -2692,16 +2595,16 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       var onClick_0 = getCallableRef('inc', function ($receiver) {
         return $receiver.inc_0(), Unit;
       }.bind(null, this$MyCounter_0));
-      var tmp$_12;
-      var tmp$_13 = (tmp$_12 = React).createElement;
+      var tmp$_11;
+      var tmp$_12 = (tmp$_11 = React).createElement;
       var obj_4 = {};
       obj_4.onClick = onClick_0;
       obj_4.disabled = null;
-      var tmp$_14 = ['button', obj_4];
-      var tmp$_15 = tmp$_14.concat;
+      var tmp$_13 = ['button', obj_4];
+      var tmp$_14 = tmp$_13.concat;
       var builder_3 = new ReactElementsListBuilder();
       builder_3.unaryPlus_pdl1vz$('+');
-      builder.unaryPlus_hhqvi5$(tmp$_13.apply(tmp$_12, tmp$_15.call(tmp$_14, builder_3.array)));
+      builder.unaryPlus_hhqvi5$(tmp$_12.apply(tmp$_11, tmp$_14.call(tmp$_13, builder_3.array)));
       $receiver.unaryPlus_hhqvi5$(tmp$_0.apply(tmp$, tmp$_2.call(tmp$_1, builder.array)));
       return Unit;
     };
@@ -2731,13 +2634,17 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   };
   MyCounter.$metadata$ = {kind: Kind_CLASS, simpleName: 'MyCounter', interfaces: [Widget]};
   function render_4() {
-    return new Sample();
+    var tmp$;
+    var builder = new ReactElementsListBuilder();
+    builder.unaryPlus_ucfgjj$(new Sample());
+    return (tmp$ = builder.singleOrNull) != null ? tmp$ : throwNPE();
   }
   function Sample() {
     Widget.call(this, null);
+    this.initialState_avbhmf$_0 = true;
   }
   Object.defineProperty(Sample.prototype, 'initialState', {get: function () {
-    return new JsTimeFormat();
+    return this.initialState_avbhmf$_0;
   }});
   Sample.prototype.render_trkh7z$ = function (state) {
     MainAxisAlignment.start;
@@ -2772,25 +2679,25 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     var tmp$_5 = ['div', props_0];
     var tmp$_6 = tmp$_5.concat;
     var builder_0 = new ReactElementsListBuilder();
-    var props_1;
-    props_1 = package$react.jsEmptyObj;
+    builder_0.unaryPlus_pdl1vz$('toggle seconds to update widget properties: ');
+    var onClick = getCallableRef('toggleSeconds', function ($receiver) {
+      return $receiver.toggleSeconds_0(), Unit;
+    }.bind(null, this));
     var tmp$_7;
     var tmp$_8 = (tmp$_7 = React).createElement;
-    var tmp$_9 = ['label', props_1];
+    var obj_3 = {};
+    obj_3.onClick = onClick;
+    obj_3.disabled = null;
+    var tmp$_9 = ['button', obj_3];
     var tmp$_10 = tmp$_9.concat;
     var builder_1 = new ReactElementsListBuilder();
-    var obj_3 = {};
-    obj_3.type = 'checkbox';
-    obj_3.onInput = getCallableRef('setShowSeconds', function ($receiver, event) {
-      return $receiver.setShowSeconds_0(event), Unit;
-    }.bind(null, this));
-    var tmp$_11;
-    var tmp$_12 = (tmp$_11 = React).createElement;
-    var tmp$_13 = ['input', obj_3];
-    var tmp$_14 = tmp$_13.concat;
-    var builder_2 = new ReactElementsListBuilder();
-    builder_1.unaryPlus_hhqvi5$(tmp$_12.apply(tmp$_11, tmp$_14.call(tmp$_13, builder_2.array)));
-    builder_1.unaryPlus_pdl1vz$('show seconds');
+    if (state) {
+      builder_1.unaryPlus_pdl1vz$('hide');
+    }
+     else {
+      builder_1.unaryPlus_pdl1vz$('show');
+    }
+    builder_1.unaryPlus_pdl1vz$(' seconds');
     builder_0.unaryPlus_hhqvi5$(tmp$_8.apply(tmp$_7, tmp$_10.call(tmp$_9, builder_1.array)));
     builder.unaryPlus_hhqvi5$(tmp$_4.apply(tmp$_3, tmp$_6.call(tmp$_5, builder_0.array)));
     MainAxisAlignment.start;
@@ -2799,57 +2706,56 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     TextDirection.ltr;
     VerticalDirection.down;
     TextBaseline.alphabetic;
-    var tmp$_15;
+    var tmp$_11;
     var obj_4 = {};
     var propsStyle_1 = obj_4;
     var obj_5 = {};
     obj_5.style = propsStyle_1;
-    var props_2 = obj_5;
-    var tmp$_16 = (tmp$_15 = React).createElement;
-    var tmp$_17 = ['div', props_2];
-    var tmp$_18 = tmp$_17.concat;
-    var builder_3 = new ReactElementsListBuilder();
-    builder_3.unaryPlus_pdl1vz$('simple clock: ');
-    builder_3.unaryPlus_ucfgjj$(new SimpleClock('simple', state));
-    builder.unaryPlus_hhqvi5$(tmp$_16.apply(tmp$_15, tmp$_18.call(tmp$_17, builder_3.array)));
+    var props_1 = obj_5;
+    var tmp$_12 = (tmp$_11 = React).createElement;
+    var tmp$_13 = ['div', props_1];
+    var tmp$_14 = tmp$_13.concat;
+    var builder_2 = new ReactElementsListBuilder();
+    builder_2.unaryPlus_pdl1vz$('simple clock: ');
+    builder_2.unaryPlus_ucfgjj$(new SimpleClock('simple', state));
+    builder.unaryPlus_hhqvi5$(tmp$_12.apply(tmp$_11, tmp$_14.call(tmp$_13, builder_2.array)));
     MainAxisAlignment.start;
     MainAxisSize.min;
     CrossAxisAlignment.start;
     TextDirection.ltr;
     VerticalDirection.down;
     TextBaseline.alphabetic;
-    var tmp$_19;
+    var tmp$_15;
     var obj_6 = {};
     var propsStyle_2 = obj_6;
     var obj_7 = {};
     obj_7.style = propsStyle_2;
-    var props_3 = obj_7;
-    var tmp$_20 = (tmp$_19 = React).createElement;
-    var tmp$_21 = ['div', props_3];
-    var tmp$_22 = tmp$_21.concat;
-    var builder_4 = new ReactElementsListBuilder();
-    builder_4.unaryPlus_pdl1vz$('boxed clock: ');
-    builder_4.unaryPlus_ucfgjj$(new BoxedClock('boxed', state));
-    builder.unaryPlus_hhqvi5$(tmp$_20.apply(tmp$_19, tmp$_22.call(tmp$_21, builder_4.array)));
+    var props_2 = obj_7;
+    var tmp$_16 = (tmp$_15 = React).createElement;
+    var tmp$_17 = ['div', props_2];
+    var tmp$_18 = tmp$_17.concat;
+    var builder_3 = new ReactElementsListBuilder();
+    builder_3.unaryPlus_pdl1vz$('boxed clock: ');
+    builder_3.unaryPlus_ucfgjj$(new BoxedClock('boxed', state));
+    builder.unaryPlus_hhqvi5$(tmp$_16.apply(tmp$_15, tmp$_18.call(tmp$_17, builder_3.array)));
     return tmp$_0.apply(tmp$, tmp$_2.call(tmp$_1, builder.array));
   };
-  function Sample$setShowSeconds$lambda(closure$event) {
-    return function ($receiver) {
-      return $receiver.copy_z8ena2$(void 0, void 0, void 0, void 0, get_checked(closure$event) ? '2-digits' : null);
-    };
+  function Sample$toggleSeconds$lambda($receiver) {
+    return !$receiver;
   }
-  Sample.prototype.setShowSeconds_0 = function (event) {
-    this.updateState_wrel54$(Sample$setShowSeconds$lambda(event));
+  Sample.prototype.toggleSeconds_0 = function () {
+    this.updateState_wrel54$(Sample$toggleSeconds$lambda);
   };
   Sample.$metadata$ = {kind: Kind_CLASS, simpleName: 'Sample', interfaces: [Widget]};
-  function SimpleClock(key, format, locale) {
-    if (locale === void 0)
-      locale = 'en-us';
+  function SimpleClock(key, showSeconds) {
     Widget.call(this, key);
-    this.format = format;
-    this.locale = locale;
+    this.key_nis54j$_0 = key;
+    this.showSeconds = showSeconds;
     this.timeId = null;
   }
+  Object.defineProperty(SimpleClock.prototype, 'key', {get: function () {
+    return this.key_nis54j$_0;
+  }});
   Object.defineProperty(SimpleClock.prototype, 'initialState', {get: function () {
     return new Date();
   }});
@@ -2865,25 +2771,14 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   SimpleClock.prototype.updateClock = function () {
     this.updateState_wrel54$(SimpleClock$updateClock$lambda);
   };
+  function SimpleClock$render$lambda(closure$state, this$SimpleClock) {
+    return function ($receiver) {
+      $receiver.unaryPlus_pdl1vz$(showTime(closure$state, this$SimpleClock.showSeconds));
+      return Unit;
+    };
+  }
   SimpleClock.prototype.render_trkh7z$ = function (state) {
-    MainAxisAlignment.start;
-    MainAxisSize.min;
-    CrossAxisAlignment.start;
-    TextDirection.ltr;
-    VerticalDirection.down;
-    TextBaseline.alphabetic;
-    var tmp$;
-    var obj = {};
-    var propsStyle = obj;
-    var obj_0 = {};
-    obj_0.style = propsStyle;
-    var props = obj_0;
-    var tmp$_0 = (tmp$ = React).createElement;
-    var tmp$_1 = ['div', props];
-    var tmp$_2 = tmp$_1.concat;
-    var builder = new ReactElementsListBuilder();
-    builder.unaryPlus_pdl1vz$(state.toLocaleTimeString(this.locale, this.format));
-    return tmp$_0.apply(tmp$, tmp$_2.call(tmp$_1, builder.array));
+    return new Box_0(void 0, void 0, void 0, void 0, void 0, void 0, SimpleClock$render$lambda(state, this));
   };
   SimpleClock.prototype.dispose = function () {
     var tmp$;
@@ -2891,13 +2786,35 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     console.log('SimpleClock: timer destroyed');
   };
   SimpleClock.$metadata$ = {kind: Kind_CLASS, simpleName: 'SimpleClock', interfaces: [Widget]};
-  function BoxedClock(key, format, locale) {
-    if (locale === void 0)
-      locale = 'en-us';
+  SimpleClock.prototype.component1 = function () {
+    return this.key;
+  };
+  SimpleClock.prototype.component2 = function () {
+    return this.showSeconds;
+  };
+  SimpleClock.prototype.copy_oud20p$ = function (key, showSeconds) {
+    return new SimpleClock(key === void 0 ? this.key : key, showSeconds === void 0 ? this.showSeconds : showSeconds);
+  };
+  SimpleClock.prototype.toString = function () {
+    return 'SimpleClock(key=' + Kotlin.toString(this.key) + (', showSeconds=' + Kotlin.toString(this.showSeconds)) + ')';
+  };
+  SimpleClock.prototype.hashCode = function () {
+    var result = 0;
+    result = result * 31 + Kotlin.hashCode(this.key) | 0;
+    result = result * 31 + Kotlin.hashCode(this.showSeconds) | 0;
+    return result;
+  };
+  SimpleClock.prototype.equals = function (other) {
+    return this === other || (other !== null && (typeof other === 'object' && (Object.getPrototypeOf(this) === Object.getPrototypeOf(other) && (Kotlin.equals(this.key, other.key) && Kotlin.equals(this.showSeconds, other.showSeconds)))));
+  };
+  function BoxedClock(key, showSeconds) {
     Widget.call(this, key);
-    this.format = format;
-    this.locale = locale;
+    this.key_ex3iuz$_0 = key;
+    this.showSeconds = showSeconds;
   }
+  Object.defineProperty(BoxedClock.prototype, 'key', {get: function () {
+    return this.key_ex3iuz$_0;
+  }});
   Object.defineProperty(BoxedClock.prototype, 'initialState', {get: function () {
     return new Date();
   }});
@@ -2905,7 +2822,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     this.closure$box = closure$box;
     this.timeId = setInterval(getCallableRef('updateClock', function ($receiver) {
       return $receiver.updateClock_0(), Unit;
-    }.bind(null, this)), 1000);
+    }.bind(null, this)), 200);
     console.log('BoxedClock: timer created');
   }
   function BoxedClock$initBoxData$ObjectLiteral$updateClock$lambda(it) {
@@ -2922,32 +2839,46 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   BoxedClock.prototype.initBoxData_xwlylv$ = function (box) {
     return new BoxedClock$initBoxData$ObjectLiteral(box);
   };
+  function BoxedClock$render$lambda(closure$state, this$BoxedClock) {
+    return function ($receiver) {
+      $receiver.unaryPlus_pdl1vz$(showTime(closure$state, this$BoxedClock.showSeconds));
+      return Unit;
+    };
+  }
   BoxedClock.prototype.render_trkh7z$ = function (state) {
-    MainAxisAlignment.start;
-    MainAxisSize.min;
-    CrossAxisAlignment.start;
-    TextDirection.ltr;
-    VerticalDirection.down;
-    TextBaseline.alphabetic;
-    var tmp$;
-    var obj = {};
-    var propsStyle = obj;
-    var obj_0 = {};
-    obj_0.style = propsStyle;
-    var props = obj_0;
-    var tmp$_0 = (tmp$ = React).createElement;
-    var tmp$_1 = ['div', props];
-    var tmp$_2 = tmp$_1.concat;
-    var builder = new ReactElementsListBuilder();
-    builder.unaryPlus_pdl1vz$(state.toLocaleTimeString(this.locale, this.format));
-    return tmp$_0.apply(tmp$, tmp$_2.call(tmp$_1, builder.array));
+    return new Box_0(void 0, void 0, void 0, void 0, void 0, void 0, BoxedClock$render$lambda(state, this));
   };
   BoxedClock.$metadata$ = {kind: Kind_CLASS, simpleName: 'BoxedClock', interfaces: [Widget]};
-  function Clock$initBoxData$ObjectLiteral(closure$box) {
-    this.closure$box = closure$box;
-    this.timeId = setInterval(getCallableRef('updateClock', function ($receiver) {
-      return $receiver.updateClock_0(), Unit;
-    }.bind(null, this)), 1000);
+  BoxedClock.prototype.component1 = function () {
+    return this.key;
+  };
+  BoxedClock.prototype.component2 = function () {
+    return this.showSeconds;
+  };
+  BoxedClock.prototype.copy_oud20p$ = function (key, showSeconds) {
+    return new BoxedClock(key === void 0 ? this.key : key, showSeconds === void 0 ? this.showSeconds : showSeconds);
+  };
+  BoxedClock.prototype.toString = function () {
+    return 'BoxedClock(key=' + Kotlin.toString(this.key) + (', showSeconds=' + Kotlin.toString(this.showSeconds)) + ')';
+  };
+  BoxedClock.prototype.hashCode = function () {
+    var result = 0;
+    result = result * 31 + Kotlin.hashCode(this.key) | 0;
+    result = result * 31 + Kotlin.hashCode(this.showSeconds) | 0;
+    return result;
+  };
+  BoxedClock.prototype.equals = function (other) {
+    return this === other || (other !== null && (typeof other === 'object' && (Object.getPrototypeOf(this) === Object.getPrototypeOf(other) && (Kotlin.equals(this.key, other.key) && Kotlin.equals(this.showSeconds, other.showSeconds)))));
+  };
+  function showTime($receiver, showSeconds) {
+    var obj = {};
+    obj.hour12 = false;
+    obj.hour = '2-digit';
+    obj.minute = '2-digit';
+    if (showSeconds) {
+      obj.second = '2-digit';
+    }
+    return $receiver.toLocaleTimeString('en-us', obj);
   }
   var Float32Array_init = Float32Array;
   var Matrix$Companion_instance = null;
@@ -3773,9 +3704,6 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   _.JsApp = JsApp;
   var package$cx = _.cx || (_.cx = {});
   var package$js = package$cx.js || (package$cx.js = {});
-  var package$kotlin = package$js.kotlin || (package$js.kotlin = {});
-  package$kotlin.JsTimeFormat = JsTimeFormat;
-  package$kotlin.get_checked_fxsrhs$ = get_checked;
   var package$ui = package$js.ui || (package$js.ui = {});
   var package$framework = package$ui.framework || (package$ui.framework = {});
   var package$widgets = package$framework.widgets || (package$framework.widgets = {});
@@ -3864,6 +3792,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   package$p04_hello_box.Sample = Sample;
   package$p04_hello_box.SimpleClock = SimpleClock;
   package$p04_hello_box.BoxedClock = BoxedClock;
+  package$p04_hello_box.showTime_3gdui6$ = showTime;
   package$flutter.AlignmentGeometry = AlignmentGeometry;
   package$flutter.Alignment = Alignment;
   Object.defineProperty(VerticalDirection, 'up', {get: VerticalDirection$up_getInstance});
@@ -3906,16 +3835,12 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   Object.defineProperty(CrossAxisAlignment, 'center', {get: CrossAxisAlignment$center_getInstance});
   Object.defineProperty(CrossAxisAlignment, 'stretch', {get: CrossAxisAlignment$stretch_getInstance});
   Object.defineProperty(CrossAxisAlignment, 'baseline', {get: CrossAxisAlignment$baseline_getInstance});
-  var package$react = _.react || (_.react = {});
-  Object.defineProperty(package$react, 'jsEmptyObj', {get: function () {
-    return jsEmptyObj;
-  }});
-  GridColumnsSpawn.prototype.contains_mef7kx$ = ClosedRange.prototype.contains_mef7kx$;
   GridColumnsSpawn.prototype.isEmpty = ClosedRange.prototype.isEmpty;
-  GridColumn.prototype.contains_mef7kx$ = ClosedRange.prototype.contains_mef7kx$;
+  GridColumnsSpawn.prototype.contains_mef7kx$ = ClosedRange.prototype.contains_mef7kx$;
   GridColumn.prototype.isEmpty = ClosedRange.prototype.isEmpty;
-  GridColumnsInterval.prototype.contains_mef7kx$ = ClosedRange.prototype.contains_mef7kx$;
+  GridColumn.prototype.contains_mef7kx$ = ClosedRange.prototype.contains_mef7kx$;
   GridColumnsInterval.prototype.isEmpty = ClosedRange.prototype.isEmpty;
+  GridColumnsInterval.prototype.contains_mef7kx$ = ClosedRange.prototype.contains_mef7kx$;
   GridRowsSpawn.prototype.contains_mef7kx$ = ClosedRange.prototype.contains_mef7kx$;
   GridRowsSpawn.prototype.isEmpty = ClosedRange.prototype.isEmpty;
   GridRow.prototype.contains_mef7kx$ = ClosedRange.prototype.contains_mef7kx$;
@@ -3924,7 +3849,6 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   GridRowInterval.prototype.isEmpty = ClosedRange.prototype.isEmpty;
   EmptyWidgetBoxData.prototype.setWidget_yybfbn$ = WidgetBoxData.prototype.setWidget_yybfbn$;
   BoxedClock$initBoxData$ObjectLiteral.prototype.setWidget_yybfbn$ = WidgetBoxData.prototype.setWidget_yybfbn$;
-  Clock$initBoxData$ObjectLiteral.prototype.setWidget_yybfbn$ = WidgetBoxData.prototype.setWidget_yybfbn$;
   factory = StdWidgetBox$Companion_getInstance();
   topLeft = new Alignment(-1.0, -1.0);
   topCenter = new Alignment(0.0, -1.0);
@@ -3939,8 +3863,6 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   black = new Color(0, 0, 0, 255);
   white = new Color(255, 255, 255, 255);
   bold = new FontWeight(5);
-  var obj = {};
-  jsEmptyObj = obj;
   main([]);
   return _;
 }));
