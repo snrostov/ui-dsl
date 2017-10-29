@@ -1,13 +1,13 @@
 package cx.js.ui.framework.widgets
 
 import cx.js.ui.framework.widgets.box.ReactWidgetBoxFactory
-import cx.js.ui.framework.widgets.box.std.StdWidgetBox
+import cx.js.ui.framework.widgets.box.dev.DevWidgetBox
 import cx.ui.framework.WidgetsListBuilder
 import cx.ui.framework.widget.Widget
 import react.ReactElement
 import react.ReactOneOrMoreElement
 
-val factory: ReactWidgetBoxFactory = StdWidgetBox
+val factory: ReactWidgetBoxFactory = DevWidgetBox
 
 class ReactElementsListBuilder : WidgetsListBuilder() {
   val list = mutableListOf<ReactElement>()

@@ -5,7 +5,8 @@ import cx.js.kotlin.parameterNames
 import cx.ui.framework.widget.Widget
 
 class DevWidgetFactory<W : Widget<S>, S : Any>(val jsClass: JsClass<W>) {
-  val propNames = jsClass.parameterNames
+  val propNames
+      = jsClass.parameterNames
 
   val reactComponentFactory
       = { props: dynamic, context: Any ->
@@ -13,11 +14,10 @@ class DevWidgetFactory<W : Widget<S>, S : Any>(val jsClass: JsClass<W>) {
   }
 
   init {
-    reactComponentFactory.unsafeCast<dynamic>().displayName = jsClass.name
+    reactComponentFactory.unsafeCast<dynamic>().displayName = jsClass.kotlin.simpleName
   }
 
   fun getPops(obj: W): dynamic = buildProps { result ->
-    val props = this
     propNames.forEach {
       val value = obj.asDynamic()[it]
       check(value !== undefined) { "property value '$it' is missing in $obj" }

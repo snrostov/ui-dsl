@@ -1,6 +1,6 @@
 package flutter
 
-data class Color(val r: Int, val g: Int, val b: Int, val a: Int = 0) {
+data class Color(val r: Int, val g: Int, val b: Int, val a: Int = 1) {
   val value: Long
     get() = a.toLong().and(0xff).shl(24)
         .or(r.toLong().and(0xff).shl(16))

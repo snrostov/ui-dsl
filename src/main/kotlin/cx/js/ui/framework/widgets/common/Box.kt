@@ -31,6 +31,14 @@ data class Margin(
     override val bottom: Double = 0.0
 ) : Insets
 
+val Int.margin
+  get() = toDouble().margin
+
+val Double.margin
+  get() = Margin(this, this, this, this)
+
+
+
 inline fun Box(
     key: String? = null,
     padding: Padding? = null,

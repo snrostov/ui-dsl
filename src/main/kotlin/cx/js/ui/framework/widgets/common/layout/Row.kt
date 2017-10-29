@@ -8,7 +8,7 @@ import react.React
 import react.ReactElement
 
 inline fun Row(
-    key: String? = null,
+    key: Any? = null,
     align: MainAxisAlignment = MainAxisAlignment.start,
     size: MainAxisSize = MainAxisSize.min,
     vertical: CrossAxisAlignment = CrossAxisAlignment.start,
@@ -21,6 +21,8 @@ inline fun Row(
   val props = buildProps<dynamic> {
     it.style = propsStyle
   }
+
+  if (key != null) props.key = key
 
   return React.createElement(
       "div",

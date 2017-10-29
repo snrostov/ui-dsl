@@ -8,6 +8,7 @@ import flutter.TextStyle
 fun TextStyle.toReactProps(props: dynamic) {
   if (color != null) props.color = color.css
   if (fontSize != null) props.fontSize = fontSize
+  if (fontFamily != null) props.fontFamily = fontFamily
 }
 
 

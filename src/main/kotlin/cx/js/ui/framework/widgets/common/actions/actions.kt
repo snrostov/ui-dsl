@@ -1,10 +1,9 @@
 package cx.js.ui.framework.widgets.common.actions
 
 import cx.js.kotlin.buildProps
-import cx.js.ui.framework.widgets.elementsArray
 import cx.ui.framework.WidgetBody
-import react.React
 import react.ReactElement
+import react.element
 
 inline fun HRef(
     key: String? = null,
@@ -18,11 +17,11 @@ inline fun Button(
     disabled: Boolean? = null,
     noinline onClick: () -> Unit = { },
     body: WidgetBody = { }
-): ReactElement = React.createElement(
+): ReactElement = element(
     "button",
     buildProps {
       it.onClick = onClick
       it.disabled = disabled
     },
-    *elementsArray(body)
+    body
 )

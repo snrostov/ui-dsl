@@ -999,10 +999,13 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   var throwCCE = Kotlin.throwCCE;
   var get_js = Kotlin.kotlin.js.get_js_1yb8b7$;
   var listOf = Kotlin.kotlin.collections.listOf_mh5how$;
+  var indexOf_0 = Kotlin.kotlin.text.indexOf_8eortd$;
+  var split = Kotlin.kotlin.text.split_o64adg$;
   var firstOrNull = Kotlin.kotlin.collections.firstOrNull_2p1efm$;
   var singleOrNull = Kotlin.kotlin.collections.singleOrNull_2p1efm$;
   var ReactComponent = $module$react.Component;
   var Kind_INTERFACE = Kotlin.Kind.INTERFACE;
+  var get_kotlin = Kotlin.kotlin.js.get_kotlin_2sk2mx$;
   var getKClass = Kotlin.getKClass;
   var plus_0 = Kotlin.kotlin.collections.plus_qloxvw$;
   var kotlin_js_internal_DoubleCompanionObject = Kotlin.kotlin.js.internal.DoubleCompanionObject;
@@ -1016,6 +1019,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   var throwUPAE = Kotlin.throwUPAE;
   var CoroutineImpl = Kotlin.kotlin.coroutines.experimental.CoroutineImpl;
   var COROUTINE_SUSPENDED = Kotlin.kotlin.coroutines.experimental.intrinsics.COROUTINE_SUSPENDED;
+  var takeLast = Kotlin.kotlin.collections.takeLast_yzln2o$;
   var Enum = Kotlin.kotlin.Enum;
   var throwISE = Kotlin.throwISE;
   JsApp.prototype = Object.create(Widget.prototype);
@@ -1024,8 +1028,8 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   ReactElementsListBuilder.prototype.constructor = ReactElementsListBuilder;
   AbstractWidgetBox.prototype = Object.create(ReactComponent.prototype);
   AbstractWidgetBox.prototype.constructor = AbstractWidgetBox;
-  StdWidgetBox.prototype = Object.create(AbstractWidgetBox.prototype);
-  StdWidgetBox.prototype.constructor = StdWidgetBox;
+  DevWidgetBox.prototype = Object.create(AbstractWidgetBox.prototype);
+  DevWidgetBox.prototype.constructor = DevWidgetBox;
   StatelessWidget.prototype = Object.create(Widget.prototype);
   StatelessWidget.prototype.constructor = StatelessWidget;
   Box_0.prototype = Object.create(StatelessWidget.prototype);
@@ -1150,6 +1154,8 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     var obj_2 = {};
     obj_2.style = propsStyle_0;
     var props_0 = obj_2;
+    if (null != null)
+      props_0.key = null;
     var tmp$_4 = (tmp$_3 = React).createElement;
     var tmp$_5 = ['div', props_0];
     var tmp$_6 = tmp$_5.concat;
@@ -1160,11 +1166,11 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       var element = tmp$_7.next();
       element.key;
       var disabled = equals(element.key, state);
-      var tmp$_8;
-      var tmp$_9 = (tmp$_8 = React).createElement;
       var obj_3 = {};
       obj_3.onClick = JsApp$render$lambda$lambda$lambda$lambda(element, this);
       obj_3.disabled = disabled;
+      var tmp$_8;
+      var tmp$_9 = (tmp$_8 = React).createElement;
       var tmp$_10 = ['button', obj_3];
       var tmp$_11 = tmp$_10.concat;
       var builder_1 = new ReactElementsListBuilder();
@@ -1184,6 +1190,8 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     var obj_5 = {};
     obj_5.style = propsStyle_1;
     var props_1 = obj_5;
+    if (null != null)
+      props_1.key = null;
     var tmp$_13 = (tmp$_12 = React).createElement;
     var tmp$_14 = ['div', props_1];
     var tmp$_15 = tmp$_14.concat;
@@ -1243,8 +1251,31 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   JsApp.$metadata$ = {kind: Kind_CLASS, simpleName: 'JsApp', interfaces: [Widget]};
   var SafeContinuation_init = Kotlin.kotlin.coroutines.experimental.SafeContinuation_init_n4f53e$;
   var copyToArray = Kotlin.kotlin.collections.copyToArray;
+  var emptyList = Kotlin.kotlin.collections.emptyList_287e2$;
   var collectionSizeOrDefault = Kotlin.kotlin.collections.collectionSizeOrDefault_ba2ldo$;
   var ArrayList_init = Kotlin.kotlin.collections.ArrayList_init_ww73n8$;
+  function get_parameterNames($receiver) {
+    var body = $receiver.toString();
+    var argsStart = indexOf_0(body, 40);
+    var startIndex = argsStart + 1 | 0;
+    var endIndex = indexOf_0(body, 41, argsStart);
+    var argsString = body.substring(startIndex, endIndex);
+    if (argsString.length === 0) {
+      return emptyList();
+    }
+     else {
+      var $receiver_0 = split(argsString, Kotlin.charArrayOf(44));
+      var destination = ArrayList_init(collectionSizeOrDefault($receiver_0, 10));
+      var tmp$;
+      tmp$ = $receiver_0.iterator();
+      while (tmp$.hasNext()) {
+        var item = tmp$.next();
+        var tmp$_0;
+        destination.add_11rb$(trim(Kotlin.isCharSequence(tmp$_0 = item) ? tmp$_0 : throwCCE()).toString());
+      }
+      return destination;
+    }
+  }
   var factory;
   function ReactElementsListBuilder() {
     WidgetsListBuilder.call(this);
@@ -1395,71 +1426,121 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   State.prototype.equals = function (other) {
     return this === other || (other !== null && (typeof other === 'object' && (Object.getPrototypeOf(this) === Object.getPrototypeOf(other) && Kotlin.equals(this.value, other.value))));
   };
-  var LinkedHashMap_init = Kotlin.kotlin.collections.LinkedHashMap_init_q3lmfv$;
-  var DevWidgetBox$Companion_instance = null;
-  var IllegalStateException_init = Kotlin.kotlin.IllegalStateException;
-  function StdWidgetBox(props, context) {
-    StdWidgetBox$Companion_getInstance();
-    AbstractWidgetBox.call(this, props, context, props.widget);
+  function DevWidgetBox(props, context, widgetFactory) {
+    DevWidgetBox$Companion_getInstance();
+    AbstractWidgetBox.call(this, props, context, widgetFactory.createWidget_za3rmp$(props));
+    this.widgetFactory = widgetFactory;
   }
-  Object.defineProperty(StdWidgetBox.prototype, 'factory', {get: function () {
-    return StdWidgetBox$Companion_getInstance();
+  Object.defineProperty(DevWidgetBox.prototype, 'factory', {get: function () {
+    return DevWidgetBox$Companion_getInstance();
   }});
-  function StdWidgetBox$Companion() {
-    StdWidgetBox$Companion_instance = this;
+  var LinkedHashMap_init = Kotlin.kotlin.collections.LinkedHashMap_init_q3lmfv$;
+  function DevWidgetBox$Companion() {
+    DevWidgetBox$Companion_instance = this;
+    this.typesCache_0 = LinkedHashMap_init();
   }
-  StdWidgetBox$Companion.prototype.createBox_nd85lo$ = function (widget) {
-    return $module$react_0.createElement(get_js(getKClass(StdWidgetBox)), new StdWidgetBoxProps(widget.key, widget));
-  };
-  StdWidgetBox$Companion.$metadata$ = {kind: Kind_OBJECT, simpleName: 'Companion', interfaces: [ReactWidgetBoxFactory]};
-  var StdWidgetBox$Companion_instance = null;
-  function StdWidgetBox$Companion_getInstance() {
-    if (StdWidgetBox$Companion_instance === null) {
-      new StdWidgetBox$Companion();
+  DevWidgetBox$Companion.prototype.createBox_nd85lo$ = function (widget) {
+    var tmp$, tmp$_0;
+    var jsClass = Kotlin.isType(tmp$ = get_js(Kotlin.getKClassFromExpression(widget)), Object) ? tmp$ : throwCCE();
+    var $receiver = this.typesCache_0;
+    var tmp$_1;
+    var value = $receiver.get_11rb$(jsClass);
+    if (value == null) {
+      var answer = new DevWidgetFactory(jsClass);
+      $receiver.put_xwzc9p$(jsClass, answer);
+      tmp$_1 = answer;
     }
-    return StdWidgetBox$Companion_instance;
+     else {
+      tmp$_1 = value;
+    }
+    var factory = Kotlin.isType(tmp$_0 = tmp$_1, DevWidgetFactory) ? tmp$_0 : throwCCE();
+    return $module$react_0.createElement(factory.reactComponentFactory, factory.getPops_ddzo5e$(widget));
+  };
+  DevWidgetBox$Companion.$metadata$ = {kind: Kind_OBJECT, simpleName: 'Companion', interfaces: [ReactWidgetBoxFactory]};
+  var DevWidgetBox$Companion_instance = null;
+  function DevWidgetBox$Companion_getInstance() {
+    if (DevWidgetBox$Companion_instance === null) {
+      new DevWidgetBox$Companion();
+    }
+    return DevWidgetBox$Companion_instance;
   }
-  StdWidgetBox.prototype.boxState_bbkuyd$ = function (widgetState) {
+  DevWidgetBox.prototype.boxState_bbkuyd$ = function (widgetState) {
     return new State(widgetState);
   };
-  StdWidgetBox.prototype.unboxState_11rc$ = function (reactState) {
+  DevWidgetBox.prototype.unboxState_11rc$ = function (reactState) {
     return reactState.value;
   };
-  StdWidgetBox.prototype.componentWillReceiveProps = function (nextProps, nextContext) {
-    var oldWidget = this.widget;
-    var newWidget = nextProps.widget;
-    if (!equals(oldWidget, newWidget)) {
-      this.widget = nextProps.widget;
-      this.props = nextProps;
+  DevWidgetBox.prototype.componentWillReceiveProps = function (nextProps, nextContext) {
+    if (!this.widgetFactory.isPropertiesEquals_wn2jw4$(this.props, nextProps)) {
+      var oldWidget = this.widget;
+      var newWidget = this.widgetFactory.createWidget_za3rmp$(nextProps);
+      if (!equals(oldWidget, newWidget)) {
+        this.widget = newWidget;
+        this.props = nextProps;
+      }
     }
   };
-  StdWidgetBox.$metadata$ = {kind: Kind_CLASS, simpleName: 'StdWidgetBox', interfaces: [AbstractWidgetBox]};
-  function StdWidgetBoxProps(key, widget) {
-    this.key = key;
-    this.widget = widget;
+  DevWidgetBox.$metadata$ = {kind: Kind_CLASS, simpleName: 'DevWidgetBox', interfaces: [AbstractWidgetBox]};
+  function DevWidgetFactory(jsClass) {
+    this.jsClass = jsClass;
+    this.propNames = get_parameterNames(this.jsClass);
+    this.reactComponentFactory = DevWidgetFactory$reactComponentFactory$lambda(this);
+    this.reactComponentFactory.displayName = get_kotlin(this.jsClass).simpleName;
   }
-  StdWidgetBoxProps.$metadata$ = {kind: Kind_CLASS, simpleName: 'StdWidgetBoxProps', interfaces: []};
-  StdWidgetBoxProps.prototype.component1 = function () {
-    return this.key;
+  var IllegalStateException_init = Kotlin.kotlin.IllegalStateException;
+  DevWidgetFactory.prototype.getPops_ddzo5e$ = function (obj) {
+    var obj_0 = {};
+    var tmp$;
+    tmp$ = this.propNames.iterator();
+    while (tmp$.hasNext()) {
+      var element = tmp$.next();
+      var value = obj[element];
+      if (!(value !== undefined)) {
+        var message = "property value '" + element + "' is missing in " + obj;
+        throw new IllegalStateException_init(message.toString());
+      }
+      obj_0[element] = value;
+      if (equals(element, 'key')) {
+        obj_0['_key'] = value;
+      }
+    }
+    return obj_0;
   };
-  StdWidgetBoxProps.prototype.component2 = function () {
-    return this.widget;
+  DevWidgetFactory.prototype.createWidget_za3rmp$ = function (props) {
+    var ctor = this.jsClass;
+    var args = ArrayList_init();
+    args.add_11rb$(null);
+    var tmp$;
+    tmp$ = this.propNames.iterator();
+    while (tmp$.hasNext()) {
+      var element = tmp$.next();
+      var value = equals(element, 'key') ? props['_key'] : props[element];
+      if (!(value !== undefined)) {
+        var message = "property value '" + element + "' is missing in " + props;
+        throw new IllegalStateException_init(message.toString());
+      }
+      args.add_11rb$(value);
+    }
+    var argsArray = copyToArray(args);
+    return new (Function.prototype.bind.apply(ctor, argsArray))();
   };
-  StdWidgetBoxProps.prototype.copy_glag95$ = function (key, widget) {
-    return new StdWidgetBoxProps(key === void 0 ? this.key : key, widget === void 0 ? this.widget : widget);
+  DevWidgetFactory.prototype.isPropertiesEquals_wn2jw4$ = function (a, b) {
+    var tmp$;
+    tmp$ = this.propNames.iterator();
+    while (tmp$.hasNext()) {
+      var element = tmp$.next();
+      if (a[element] != b[element])
+        return false;
+    }
+    return true;
   };
-  StdWidgetBoxProps.prototype.toString = function () {
-    return 'StdWidgetBoxProps(key=' + Kotlin.toString(this.key) + (', widget=' + Kotlin.toString(this.widget)) + ')';
-  };
-  StdWidgetBoxProps.prototype.hashCode = function () {
-    var result = 0;
-    result = result * 31 + Kotlin.hashCode(this.key) | 0;
-    result = result * 31 + Kotlin.hashCode(this.widget) | 0;
-    return result;
-  };
-  StdWidgetBoxProps.prototype.equals = function (other) {
-    return this === other || (other !== null && (typeof other === 'object' && (Object.getPrototypeOf(this) === Object.getPrototypeOf(other) && (Kotlin.equals(this.key, other.key) && Kotlin.equals(this.widget, other.widget)))));
-  };
+  function DevWidgetFactory$reactComponentFactory$lambda(this$DevWidgetFactory) {
+    return function (props, context) {
+      return new DevWidgetBox(props, context, this$DevWidgetFactory);
+    };
+  }
+  DevWidgetFactory.$metadata$ = {kind: Kind_CLASS, simpleName: 'DevWidgetFactory', interfaces: []};
+  var StdWidgetBox$Companion_instance = null;
   function Padding(left, top, right, bottom) {
     if (left === void 0)
       left = 0.0;
@@ -1578,7 +1659,12 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   Margin.prototype.equals = function (other) {
     return this === other || (other !== null && (typeof other === 'object' && (Object.getPrototypeOf(this) === Object.getPrototypeOf(other) && (Kotlin.equals(this.left, other.left) && Kotlin.equals(this.top, other.top) && Kotlin.equals(this.right, other.right) && Kotlin.equals(this.bottom, other.bottom)))));
   };
-  var emptyList = Kotlin.kotlin.collections.emptyList_287e2$;
+  function get_margin($receiver) {
+    return get_margin_0($receiver);
+  }
+  function get_margin_0($receiver) {
+    return new Margin($receiver, $receiver, $receiver, $receiver);
+  }
   function join(item, list) {
     if (item == null) {
       return list != null ? list : emptyList();
@@ -1791,6 +1877,8 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       props.color = get_css_3($receiver.color);
     if ($receiver.fontSize != null)
       props.fontSize = $receiver.fontSize;
+    if ($receiver.fontFamily != null)
+      props.fontFamily = $receiver.fontFamily;
   }
   function toReactProps_0($receiver, props) {
     var tmp$;
@@ -2205,6 +2293,8 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     var obj_2 = {};
     obj_2.style = propsStyle_0;
     var props_0 = obj_2;
+    if (null != null)
+      props_0.key = null;
     var tmp$_4 = (tmp$_3 = React).createElement;
     var tmp$_5 = ['div', props_0];
     var tmp$_6 = tmp$_5.concat;
@@ -2298,6 +2388,8 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     var obj_0 = {};
     obj_0.style = propsStyle;
     var props = obj_0;
+    if (null != null)
+      props.key = null;
     var tmp$_0 = (tmp$ = React).createElement;
     var tmp$_1 = ['div', props];
     var tmp$_2 = tmp$_1.concat;
@@ -2423,6 +2515,8 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     var obj_0 = {};
     obj_0.style = propsStyle;
     var props = obj_0;
+    if (null != null)
+      props.key = null;
     var tmp$_0 = (tmp$ = React).createElement;
     var tmp$_1 = ['div', props];
     var tmp$_2 = tmp$_1.concat;
@@ -2528,6 +2622,8 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       var obj_0 = {};
       obj_0.style = propsStyle;
       var props = obj_0;
+      if (null != null)
+        props.key = null;
       var tmp$_0 = (tmp$ = React).createElement;
       var tmp$_1 = ['div', props];
       var tmp$_2 = tmp$_1.concat;
@@ -2538,11 +2634,11 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       var onClick = getCallableRef('dec', function ($receiver) {
         return $receiver.dec_0(), Unit;
       }.bind(null, this$MyCounter_0));
-      var tmp$_3;
-      var tmp$_4 = (tmp$_3 = React).createElement;
       var obj_1 = {};
       obj_1.onClick = onClick;
       obj_1.disabled = null;
+      var tmp$_3;
+      var tmp$_4 = (tmp$_3 = React).createElement;
       var tmp$_5 = ['button', obj_1];
       var tmp$_6 = tmp$_5.concat;
       var builder_0 = new ReactElementsListBuilder();
@@ -2595,11 +2691,11 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       var onClick_0 = getCallableRef('inc', function ($receiver) {
         return $receiver.inc_0(), Unit;
       }.bind(null, this$MyCounter_0));
-      var tmp$_11;
-      var tmp$_12 = (tmp$_11 = React).createElement;
       var obj_4 = {};
       obj_4.onClick = onClick_0;
       obj_4.disabled = null;
+      var tmp$_11;
+      var tmp$_12 = (tmp$_11 = React).createElement;
       var tmp$_13 = ['button', obj_4];
       var tmp$_14 = tmp$_13.concat;
       var builder_3 = new ReactElementsListBuilder();
@@ -2639,13 +2735,313 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     builder.unaryPlus_ucfgjj$(new Sample());
     return (tmp$ = builder.singleOrNull) != null ? tmp$ : throwNPE();
   }
+  function State_0(showSeconds, showWidgets, lastMessageId, messages) {
+    if (showSeconds === void 0)
+      showSeconds = true;
+    if (showWidgets === void 0)
+      showWidgets = true;
+    if (lastMessageId === void 0)
+      lastMessageId = 0;
+    if (messages === void 0) {
+      messages = emptyList();
+    }
+    this.showSeconds = showSeconds;
+    this.showWidgets = showWidgets;
+    this.lastMessageId = lastMessageId;
+    this.messages = messages;
+  }
+  State_0.$metadata$ = {kind: Kind_CLASS, simpleName: 'State', interfaces: []};
+  State_0.prototype.component1 = function () {
+    return this.showSeconds;
+  };
+  State_0.prototype.component2 = function () {
+    return this.showWidgets;
+  };
+  State_0.prototype.component3 = function () {
+    return this.lastMessageId;
+  };
+  State_0.prototype.component4 = function () {
+    return this.messages;
+  };
+  State_0.prototype.copy_81cx78$ = function (showSeconds, showWidgets, lastMessageId, messages) {
+    return new State_0(showSeconds === void 0 ? this.showSeconds : showSeconds, showWidgets === void 0 ? this.showWidgets : showWidgets, lastMessageId === void 0 ? this.lastMessageId : lastMessageId, messages === void 0 ? this.messages : messages);
+  };
+  State_0.prototype.toString = function () {
+    return 'State(showSeconds=' + Kotlin.toString(this.showSeconds) + (', showWidgets=' + Kotlin.toString(this.showWidgets)) + (', lastMessageId=' + Kotlin.toString(this.lastMessageId)) + (', messages=' + Kotlin.toString(this.messages)) + ')';
+  };
+  State_0.prototype.hashCode = function () {
+    var result = 0;
+    result = result * 31 + Kotlin.hashCode(this.showSeconds) | 0;
+    result = result * 31 + Kotlin.hashCode(this.showWidgets) | 0;
+    result = result * 31 + Kotlin.hashCode(this.lastMessageId) | 0;
+    result = result * 31 + Kotlin.hashCode(this.messages) | 0;
+    return result;
+  };
+  State_0.prototype.equals = function (other) {
+    return this === other || (other !== null && (typeof other === 'object' && (Object.getPrototypeOf(this) === Object.getPrototypeOf(other) && (Kotlin.equals(this.showSeconds, other.showSeconds) && Kotlin.equals(this.showWidgets, other.showWidgets) && Kotlin.equals(this.lastMessageId, other.lastMessageId) && Kotlin.equals(this.messages, other.messages)))));
+  };
+  function Msg(id, message) {
+    this.id = id;
+    this.message = message;
+  }
+  Msg.$metadata$ = {kind: Kind_CLASS, simpleName: 'Msg', interfaces: []};
+  Msg.prototype.component1 = function () {
+    return this.id;
+  };
+  Msg.prototype.component2 = function () {
+    return this.message;
+  };
+  Msg.prototype.copy_19mbxw$ = function (id, message) {
+    return new Msg(id === void 0 ? this.id : id, message === void 0 ? this.message : message);
+  };
+  Msg.prototype.toString = function () {
+    return 'Msg(id=' + Kotlin.toString(this.id) + (', message=' + Kotlin.toString(this.message)) + ')';
+  };
+  Msg.prototype.hashCode = function () {
+    var result = 0;
+    result = result * 31 + Kotlin.hashCode(this.id) | 0;
+    result = result * 31 + Kotlin.hashCode(this.message) | 0;
+    return result;
+  };
+  Msg.prototype.equals = function (other) {
+    return this === other || (other !== null && (typeof other === 'object' && (Object.getPrototypeOf(this) === Object.getPrototypeOf(other) && (Kotlin.equals(this.id, other.id) && Kotlin.equals(this.message, other.message)))));
+  };
+  function Logger() {
+  }
+  Logger.$metadata$ = {kind: Kind_INTERFACE, simpleName: 'Logger', interfaces: []};
   function Sample() {
     Widget.call(this, null);
-    this.initialState_avbhmf$_0 = true;
+    this.initialState_avbhmf$_0 = new State_0();
   }
   Object.defineProperty(Sample.prototype, 'initialState', {get: function () {
     return this.initialState_avbhmf$_0;
   }});
+  function Sample$toggleSeconds$lambda($receiver) {
+    return $receiver.copy_81cx78$(!$receiver.showSeconds);
+  }
+  Sample.prototype.toggleSeconds_matjld$ = function (state) {
+    this.log_61zpoe$('seconds will be ' + (!state.showSeconds ? 'visible' : 'invisible'));
+    this.updateState_wrel54$(Sample$toggleSeconds$lambda);
+  };
+  function Sample$toggleVisibility$lambda($receiver) {
+    return $receiver.copy_81cx78$(void 0, !$receiver.showWidgets);
+  }
+  Sample.prototype.toggleVisibility_matjld$ = function (state) {
+    this.log_61zpoe$('widgets will be ' + (!state.showWidgets ? 'visible' : 'invisible'));
+    this.updateState_wrel54$(Sample$toggleVisibility$lambda);
+  };
+  function Sample$render$lambda$lambda$lambda$lambda(closure$state, this$Sample) {
+    return function () {
+      this$Sample.toggleSeconds_matjld$(closure$state);
+      return Unit;
+    };
+  }
+  function Sample$render$lambda$lambda$lambda$lambda_0(closure$state, this$Sample) {
+    return function () {
+      this$Sample.toggleVisibility_matjld$(closure$state);
+      return Unit;
+    };
+  }
+  function Sample$render$lambda$lambda$lambda$lambda_1($receiver) {
+    $receiver.unaryPlus_pdl1vz$('(widgets hidden)');
+    return Unit;
+  }
+  function Sample$render$lambda$lambda(closure$state, this$Sample) {
+    return function ($receiver) {
+      if (closure$state.showWidgets) {
+        MainAxisAlignment.start;
+        MainAxisSize.min;
+        CrossAxisAlignment.start;
+        TextDirection.ltr;
+        VerticalDirection.down;
+        TextBaseline.alphabetic;
+        var tmp$;
+        var obj = {};
+        var propsStyle = obj;
+        var obj_0 = {};
+        obj_0.style = propsStyle;
+        var props = obj_0;
+        if (null != null)
+          props.key = null;
+        var tmp$_0 = (tmp$ = React).createElement;
+        var tmp$_1 = ['div', props];
+        var tmp$_2 = tmp$_1.concat;
+        var builder = new ReactElementsListBuilder();
+        var closure$state_0 = closure$state;
+        var this$Sample_0 = this$Sample;
+        builder.unaryPlus_pdl1vz$('simple clock: ');
+        builder.unaryPlus_ucfgjj$(new SimpleClock('simple', closure$state_0.showSeconds, this$Sample_0));
+        $receiver.unaryPlus_hhqvi5$(tmp$_0.apply(tmp$, tmp$_2.call(tmp$_1, builder.array)));
+        MainAxisAlignment.start;
+        MainAxisSize.min;
+        CrossAxisAlignment.start;
+        TextDirection.ltr;
+        VerticalDirection.down;
+        TextBaseline.alphabetic;
+        var tmp$_3;
+        var obj_1 = {};
+        var propsStyle_0 = obj_1;
+        var obj_2 = {};
+        obj_2.style = propsStyle_0;
+        var props_0 = obj_2;
+        if (null != null)
+          props_0.key = null;
+        var tmp$_4 = (tmp$_3 = React).createElement;
+        var tmp$_5 = ['div', props_0];
+        var tmp$_6 = tmp$_5.concat;
+        var builder_0 = new ReactElementsListBuilder();
+        var closure$state_1 = closure$state;
+        var this$Sample_1 = this$Sample;
+        builder_0.unaryPlus_pdl1vz$('boxed clock: ');
+        builder_0.unaryPlus_ucfgjj$(new BoxedClock('boxed', closure$state_1.showSeconds, this$Sample_1));
+        $receiver.unaryPlus_hhqvi5$(tmp$_4.apply(tmp$_3, tmp$_6.call(tmp$_5, builder_0.array)));
+      }
+       else {
+        MainAxisAlignment.start;
+        MainAxisSize.min;
+        CrossAxisAlignment.start;
+        TextDirection.ltr;
+        VerticalDirection.down;
+        TextBaseline.alphabetic;
+        var tmp$_7;
+        var obj_3 = {};
+        var propsStyle_1 = obj_3;
+        var obj_4 = {};
+        obj_4.style = propsStyle_1;
+        var props_1 = obj_4;
+        if (null != null)
+          props_1.key = null;
+        var tmp$_8 = (tmp$_7 = React).createElement;
+        var tmp$_9 = ['div', props_1];
+        var tmp$_10 = tmp$_9.concat;
+        var builder_1 = new ReactElementsListBuilder();
+        var color = new Color(100, 100, 100);
+        var tmp$_11;
+        var obj_5 = {};
+        var propsStyle_2 = obj_5;
+        var obj_6 = {};
+        obj_6.style = propsStyle_2;
+        var props_2 = obj_6;
+        if (null != null) {
+          props_2.key = null;
+        }
+        toReactProps((null != null ? null : new TextStyle()).copy_715hh1$(void 0, null, color, null, void 0, void 0, null, null, void 0, null, null), propsStyle_2);
+        null != null ? (toReactProps_0(null, propsStyle_2), Unit) : null;
+        null != null ? (toReactProps_1(null, propsStyle_2), Unit) : null;
+        if (false) {
+          throw new NotImplementedError_init();
+        }
+        null != null ? (toReactProps_2(null, propsStyle_2), Unit) : null;
+        if (false) {
+          throw new NotImplementedError_init();
+        }
+        if (null != null) {
+          throw new NotImplementedError_init();
+        }
+        var tmp$_12 = (tmp$_11 = React).createElement;
+        var tmp$_13 = ['span', props_2];
+        var tmp$_14 = tmp$_13.concat;
+        var builder_2 = new ReactElementsListBuilder();
+        if (null != null) {
+          var builder_3 = new ReactElementsListBuilder();
+          builder_3.unaryPlus_pdl1vz$('(widgets hidden)');
+          if (!(builder_3.singleOrNull == null)) {
+            var message = 'When text is provided body should be empty';
+            throw new IllegalArgumentException_init(message.toString());
+          }
+          builder_2.unaryPlus_pdl1vz$(null);
+        }
+         else {
+          Sample$render$lambda$lambda$lambda$lambda_1(builder_2);
+        }
+        builder_1.unaryPlus_hhqvi5$(tmp$_12.apply(tmp$_11, tmp$_14.call(tmp$_13, builder_2.array)));
+        $receiver.unaryPlus_hhqvi5$(tmp$_8.apply(tmp$_7, tmp$_10.call(tmp$_9, builder_1.array)));
+      }
+      return Unit;
+    };
+  }
+  function Sample$render$lambda$lambda$lambda$lambda_2(closure$state) {
+    return function ($receiver) {
+      MainAxisAlignment.start;
+      MainAxisSize.max;
+      CrossAxisAlignment.start;
+      TextDirection.ltr;
+      VerticalDirection.down;
+      TextBaseline.alphabetic;
+      var tmp$;
+      var obj = {};
+      var propsStyle = obj;
+      var obj_0 = {};
+      obj_0.style = propsStyle;
+      var props = obj_0;
+      var tmp$_0 = (tmp$ = React).createElement;
+      var tmp$_1 = ['div', props];
+      var tmp$_2 = tmp$_1.concat;
+      var builder = new ReactElementsListBuilder();
+      var tmp$_3;
+      tmp$_3 = closure$state.messages.iterator();
+      while (tmp$_3.hasNext()) {
+        var element = tmp$_3.next();
+        var key = element.id;
+        MainAxisAlignment.start;
+        MainAxisSize.min;
+        CrossAxisAlignment.start;
+        TextDirection.ltr;
+        VerticalDirection.down;
+        TextBaseline.alphabetic;
+        var tmp$_4;
+        var obj_1 = {};
+        var propsStyle_0 = obj_1;
+        var obj_2 = {};
+        obj_2.style = propsStyle_0;
+        var props_0 = obj_2;
+        if (key != null)
+          props_0.key = key;
+        var tmp$_5 = (tmp$_4 = React).createElement;
+        var tmp$_6 = ['div', props_0];
+        var tmp$_7 = tmp$_6.concat;
+        var builder_0 = new ReactElementsListBuilder();
+        builder_0.unaryPlus_pdl1vz$(element.message);
+        builder.unaryPlus_hhqvi5$(tmp$_5.apply(tmp$_4, tmp$_7.call(tmp$_6, builder_0.array)));
+      }
+      $receiver.unaryPlus_hhqvi5$(tmp$_0.apply(tmp$, tmp$_2.call(tmp$_1, builder.array)));
+      return Unit;
+    };
+  }
+  function Sample$render$lambda$lambda_0(closure$state) {
+    return function ($receiver) {
+      MainAxisAlignment.start;
+      MainAxisSize.min;
+      CrossAxisAlignment.start;
+      TextDirection.ltr;
+      VerticalDirection.down;
+      TextBaseline.alphabetic;
+      var tmp$;
+      var obj = {};
+      var propsStyle = obj;
+      var obj_0 = {};
+      obj_0.style = propsStyle;
+      var props = obj_0;
+      if (null != null)
+        props.key = null;
+      var tmp$_0 = (tmp$ = React).createElement;
+      var tmp$_1 = ['div', props];
+      var tmp$_2 = tmp$_1.concat;
+      var builder = new ReactElementsListBuilder();
+      var closure$state_0 = closure$state;
+      var tmp$_3, tmp$_4, tmp$_5;
+      tmp$_3 = Border_1(1.0);
+      tmp$_4 = get_padding(5);
+      tmp$_5 = get_margin(5);
+      var maxWidth;
+      var maxHeight;
+      maxWidth = kotlin_js_internal_DoubleCompanionObject.POSITIVE_INFINITY;
+      maxHeight = kotlin_js_internal_DoubleCompanionObject.POSITIVE_INFINITY;
+      builder.unaryPlus_ucfgjj$(new Box_0(null, tmp$_4, new BoxDecoration(null, tmp$_3, null, join(null, null), null, null), new BoxConstraints(500.0 != null ? 500.0 : 0.0, 500.0 != null ? 500.0 : maxWidth, 200.0 != null ? 200.0 : 0.0, 200.0 != null ? 200.0 : maxHeight), tmp$_5, null, Sample$render$lambda$lambda$lambda$lambda_2(closure$state_0)));
+      $receiver.unaryPlus_hhqvi5$(tmp$_0.apply(tmp$, tmp$_2.call(tmp$_1, builder.array)));
+      return Unit;
+    };
+  }
   Sample.prototype.render_trkh7z$ = function (state) {
     MainAxisAlignment.start;
     MainAxisSize.max;
@@ -2663,94 +3059,197 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     var tmp$_1 = ['div', props];
     var tmp$_2 = tmp$_1.concat;
     var builder = new ReactElementsListBuilder();
+    var tmp$_3, tmp$_4, tmp$_5;
     MainAxisAlignment.start;
     MainAxisSize.min;
     CrossAxisAlignment.start;
     TextDirection.ltr;
     VerticalDirection.down;
     TextBaseline.alphabetic;
-    var tmp$_3;
+    var tmp$_6;
     var obj_1 = {};
     var propsStyle_0 = obj_1;
     var obj_2 = {};
     obj_2.style = propsStyle_0;
     var props_0 = obj_2;
-    var tmp$_4 = (tmp$_3 = React).createElement;
-    var tmp$_5 = ['div', props_0];
-    var tmp$_6 = tmp$_5.concat;
+    if (null != null)
+      props_0.key = null;
+    var tmp$_7 = (tmp$_6 = React).createElement;
+    var tmp$_8 = ['div', props_0];
+    var tmp$_9 = tmp$_8.concat;
     var builder_0 = new ReactElementsListBuilder();
-    builder_0.unaryPlus_pdl1vz$('toggle seconds to update widget properties: ');
-    var onClick = getCallableRef('toggleSeconds', function ($receiver) {
-      return $receiver.toggleSeconds_0(), Unit;
-    }.bind(null, this));
-    var tmp$_7;
-    var tmp$_8 = (tmp$_7 = React).createElement;
+    MainAxisAlignment.start;
+    MainAxisSize.min;
+    CrossAxisAlignment.start;
+    TextDirection.ltr;
+    VerticalDirection.down;
+    TextBaseline.alphabetic;
+    var tmp$_10;
     var obj_3 = {};
-    obj_3.onClick = onClick;
-    obj_3.disabled = null;
-    var tmp$_9 = ['button', obj_3];
-    var tmp$_10 = tmp$_9.concat;
+    var propsStyle_1 = obj_3;
+    var obj_4 = {};
+    obj_4.style = propsStyle_1;
+    var props_1 = obj_4;
+    if (null != null)
+      props_1.key = null;
+    var tmp$_11 = (tmp$_10 = React).createElement;
+    var tmp$_12 = ['div', props_1];
+    var tmp$_13 = tmp$_12.concat;
     var builder_1 = new ReactElementsListBuilder();
-    if (state) {
-      builder_1.unaryPlus_pdl1vz$('hide');
+    builder_1.unaryPlus_pdl1vz$('Toggle seconds to update widget properties (only simple clock should recreate timer)');
+    builder_0.unaryPlus_hhqvi5$(tmp$_11.apply(tmp$_10, tmp$_13.call(tmp$_12, builder_1.array)));
+    MainAxisAlignment.start;
+    MainAxisSize.min;
+    CrossAxisAlignment.start;
+    TextDirection.ltr;
+    VerticalDirection.down;
+    TextBaseline.alphabetic;
+    var tmp$_14;
+    var obj_5 = {};
+    var propsStyle_2 = obj_5;
+    var obj_6 = {};
+    obj_6.style = propsStyle_2;
+    var props_2 = obj_6;
+    if (null != null)
+      props_2.key = null;
+    var tmp$_15 = (tmp$_14 = React).createElement;
+    var tmp$_16 = ['div', props_2];
+    var tmp$_17 = tmp$_16.concat;
+    var builder_2 = new ReactElementsListBuilder();
+    builder_2.unaryPlus_pdl1vz$('Toggle visibility to recreate widgets (both clock will recreate their timers)');
+    builder_0.unaryPlus_hhqvi5$(tmp$_15.apply(tmp$_14, tmp$_17.call(tmp$_16, builder_2.array)));
+    MainAxisAlignment.start;
+    MainAxisSize.min;
+    CrossAxisAlignment.start;
+    TextDirection.ltr;
+    VerticalDirection.down;
+    TextBaseline.alphabetic;
+    var tmp$_18;
+    var obj_7 = {};
+    var propsStyle_3 = obj_7;
+    var obj_8 = {};
+    obj_8.style = propsStyle_3;
+    var props_3 = obj_8;
+    if (null != null)
+      props_3.key = null;
+    var tmp$_19 = (tmp$_18 = React).createElement;
+    var tmp$_20 = ['div', props_3];
+    var tmp$_21 = tmp$_20.concat;
+    var builder_3 = new ReactElementsListBuilder();
+    var obj_9 = {};
+    obj_9.onClick = Sample$render$lambda$lambda$lambda$lambda(state, this);
+    obj_9.disabled = null;
+    var tmp$_22;
+    var tmp$_23 = (tmp$_22 = React).createElement;
+    var tmp$_24 = ['button', obj_9];
+    var tmp$_25 = tmp$_24.concat;
+    var builder_4 = new ReactElementsListBuilder();
+    builder_4.unaryPlus_pdl1vz$(state.showSeconds ? 'hide seconds' : 'show seconds');
+    builder_3.unaryPlus_hhqvi5$(tmp$_23.apply(tmp$_22, tmp$_25.call(tmp$_24, builder_4.array)));
+    var obj_10 = {};
+    obj_10.onClick = Sample$render$lambda$lambda$lambda$lambda_0(state, this);
+    obj_10.disabled = null;
+    var tmp$_26;
+    var tmp$_27 = (tmp$_26 = React).createElement;
+    var tmp$_28 = ['button', obj_10];
+    var tmp$_29 = tmp$_28.concat;
+    var builder_5 = new ReactElementsListBuilder();
+    builder_5.unaryPlus_pdl1vz$(state.showWidgets ? 'hide widgets' : 'show widgets');
+    builder_3.unaryPlus_hhqvi5$(tmp$_27.apply(tmp$_26, tmp$_29.call(tmp$_28, builder_5.array)));
+    builder_0.unaryPlus_hhqvi5$(tmp$_19.apply(tmp$_18, tmp$_21.call(tmp$_20, builder_3.array)));
+    builder.unaryPlus_hhqvi5$(tmp$_7.apply(tmp$_6, tmp$_9.call(tmp$_8, builder_0.array)));
+    tmp$_3 = Border_1(1.0);
+    tmp$_4 = get_padding(5);
+    tmp$_5 = get_margin(5);
+    var maxWidth;
+    var maxHeight;
+    maxWidth = kotlin_js_internal_DoubleCompanionObject.POSITIVE_INFINITY;
+    maxHeight = kotlin_js_internal_DoubleCompanionObject.POSITIVE_INFINITY;
+    builder.unaryPlus_ucfgjj$(new Box_0(null, tmp$_4, new BoxDecoration(null, tmp$_3, null, join(null, null), null, null), new BoxConstraints(200.0 != null ? 200.0 : 0.0, 200.0 != null ? 200.0 : maxWidth, 50.0 != null ? 50.0 : 0.0, 50.0 != null ? 50.0 : maxHeight), tmp$_5, null, Sample$render$lambda$lambda(state, this)));
+    var fontFamily = 'monospace';
+    var tmp$_30;
+    var obj_11 = {};
+    var propsStyle_4 = obj_11;
+    var obj_12 = {};
+    obj_12.style = propsStyle_4;
+    var props_4 = obj_12;
+    if (null != null) {
+      props_4.key = null;
+    }
+    toReactProps((null != null ? null : new TextStyle()).copy_715hh1$(void 0, fontFamily, null, null, void 0, void 0, null, null, void 0, null, null), propsStyle_4);
+    null != null ? (toReactProps_0(null, propsStyle_4), Unit) : null;
+    null != null ? (toReactProps_1(null, propsStyle_4), Unit) : null;
+    if (false) {
+      throw new NotImplementedError_init();
+    }
+    null != null ? (toReactProps_2(null, propsStyle_4), Unit) : null;
+    if (false) {
+      throw new NotImplementedError_init();
+    }
+    if (null != null) {
+      throw new NotImplementedError_init();
+    }
+    var tmp$_31 = (tmp$_30 = React).createElement;
+    var tmp$_32 = ['span', props_4];
+    var tmp$_33 = tmp$_32.concat;
+    var builder_6 = new ReactElementsListBuilder();
+    if (null != null) {
+      var builder_7 = new ReactElementsListBuilder();
+      MainAxisAlignment.start;
+      MainAxisSize.min;
+      CrossAxisAlignment.start;
+      TextDirection.ltr;
+      VerticalDirection.down;
+      TextBaseline.alphabetic;
+      var tmp$_34;
+      var obj_13 = {};
+      var propsStyle_5 = obj_13;
+      var obj_14 = {};
+      obj_14.style = propsStyle_5;
+      var props_5 = obj_14;
+      if (null != null)
+        props_5.key = null;
+      var tmp$_35 = (tmp$_34 = React).createElement;
+      var tmp$_36 = ['div', props_5];
+      var tmp$_37 = tmp$_36.concat;
+      var builder_8 = new ReactElementsListBuilder();
+      var tmp$_38, tmp$_39, tmp$_40;
+      tmp$_38 = Border_1(1.0);
+      tmp$_39 = get_padding(5);
+      tmp$_40 = get_margin(5);
+      var maxWidth_0;
+      var maxHeight_0;
+      maxWidth_0 = kotlin_js_internal_DoubleCompanionObject.POSITIVE_INFINITY;
+      maxHeight_0 = kotlin_js_internal_DoubleCompanionObject.POSITIVE_INFINITY;
+      builder_8.unaryPlus_ucfgjj$(new Box_0(null, tmp$_39, new BoxDecoration(null, tmp$_38, null, join(null, null), null, null), new BoxConstraints(500.0 != null ? 500.0 : 0.0, 500.0 != null ? 500.0 : maxWidth_0, 200.0 != null ? 200.0 : 0.0, 200.0 != null ? 200.0 : maxHeight_0), tmp$_40, null, Sample$render$lambda$lambda$lambda$lambda_2(state)));
+      builder_7.unaryPlus_hhqvi5$(tmp$_35.apply(tmp$_34, tmp$_37.call(tmp$_36, builder_8.array)));
+      if (!(builder_7.singleOrNull == null)) {
+        var message = 'When text is provided body should be empty';
+        throw new IllegalArgumentException_init(message.toString());
+      }
+      builder_6.unaryPlus_pdl1vz$(null);
     }
      else {
-      builder_1.unaryPlus_pdl1vz$('show');
+      Sample$render$lambda$lambda_0(state)(builder_6);
     }
-    builder_1.unaryPlus_pdl1vz$(' seconds');
-    builder_0.unaryPlus_hhqvi5$(tmp$_8.apply(tmp$_7, tmp$_10.call(tmp$_9, builder_1.array)));
-    builder.unaryPlus_hhqvi5$(tmp$_4.apply(tmp$_3, tmp$_6.call(tmp$_5, builder_0.array)));
-    MainAxisAlignment.start;
-    MainAxisSize.min;
-    CrossAxisAlignment.start;
-    TextDirection.ltr;
-    VerticalDirection.down;
-    TextBaseline.alphabetic;
-    var tmp$_11;
-    var obj_4 = {};
-    var propsStyle_1 = obj_4;
-    var obj_5 = {};
-    obj_5.style = propsStyle_1;
-    var props_1 = obj_5;
-    var tmp$_12 = (tmp$_11 = React).createElement;
-    var tmp$_13 = ['div', props_1];
-    var tmp$_14 = tmp$_13.concat;
-    var builder_2 = new ReactElementsListBuilder();
-    builder_2.unaryPlus_pdl1vz$('simple clock: ');
-    builder_2.unaryPlus_ucfgjj$(new SimpleClock('simple', state));
-    builder.unaryPlus_hhqvi5$(tmp$_12.apply(tmp$_11, tmp$_14.call(tmp$_13, builder_2.array)));
-    MainAxisAlignment.start;
-    MainAxisSize.min;
-    CrossAxisAlignment.start;
-    TextDirection.ltr;
-    VerticalDirection.down;
-    TextBaseline.alphabetic;
-    var tmp$_15;
-    var obj_6 = {};
-    var propsStyle_2 = obj_6;
-    var obj_7 = {};
-    obj_7.style = propsStyle_2;
-    var props_2 = obj_7;
-    var tmp$_16 = (tmp$_15 = React).createElement;
-    var tmp$_17 = ['div', props_2];
-    var tmp$_18 = tmp$_17.concat;
-    var builder_3 = new ReactElementsListBuilder();
-    builder_3.unaryPlus_pdl1vz$('boxed clock: ');
-    builder_3.unaryPlus_ucfgjj$(new BoxedClock('boxed', state));
-    builder.unaryPlus_hhqvi5$(tmp$_16.apply(tmp$_15, tmp$_18.call(tmp$_17, builder_3.array)));
+    builder.unaryPlus_hhqvi5$(tmp$_31.apply(tmp$_30, tmp$_33.call(tmp$_32, builder_6.array)));
     return tmp$_0.apply(tmp$, tmp$_2.call(tmp$_1, builder.array));
   };
-  function Sample$toggleSeconds$lambda($receiver) {
-    return !$receiver;
+  function Sample$log$lambda(closure$message) {
+    return function ($receiver) {
+      var msgId = $receiver.lastMessageId + 1 | 0;
+      return $receiver.copy_81cx78$(void 0, void 0, msgId, plus_0(takeLast($receiver.messages, 10), new Msg(msgId, '[' + msgId + '] ' + closure$message)));
+    };
   }
-  Sample.prototype.toggleSeconds_0 = function () {
-    this.updateState_wrel54$(Sample$toggleSeconds$lambda);
+  Sample.prototype.log_61zpoe$ = function (message) {
+    this.updateState_wrel54$(Sample$log$lambda(message));
   };
-  Sample.$metadata$ = {kind: Kind_CLASS, simpleName: 'Sample', interfaces: [Widget]};
-  function SimpleClock(key, showSeconds) {
+  Sample.$metadata$ = {kind: Kind_CLASS, simpleName: 'Sample', interfaces: [Logger, Widget]};
+  function SimpleClock(key, showSeconds, logger) {
     Widget.call(this, key);
     this.key_nis54j$_0 = key;
     this.showSeconds = showSeconds;
+    this.logger = logger;
     this.timeId = null;
   }
   Object.defineProperty(SimpleClock.prototype, 'key', {get: function () {
@@ -2762,8 +3261,8 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   SimpleClock.prototype.init = function () {
     this.timeId = setInterval(getCallableRef('updateClock', function ($receiver) {
       return $receiver.updateClock(), Unit;
-    }.bind(null, this)), 1000);
-    console.log('SimpleClock: timer created');
+    }.bind(null, this)), 200);
+    this.logger.log_61zpoe$('SimpleClock: timer created');
   };
   function SimpleClock$updateClock$lambda($receiver) {
     return new Date();
@@ -2783,7 +3282,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   SimpleClock.prototype.dispose = function () {
     var tmp$;
     clearInterval((tmp$ = this.timeId) != null ? tmp$ : throwNPE());
-    console.log('SimpleClock: timer destroyed');
+    this.logger.log_61zpoe$('SimpleClock: timer destroyed');
   };
   SimpleClock.$metadata$ = {kind: Kind_CLASS, simpleName: 'SimpleClock', interfaces: [Widget]};
   SimpleClock.prototype.component1 = function () {
@@ -2792,25 +3291,30 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   SimpleClock.prototype.component2 = function () {
     return this.showSeconds;
   };
-  SimpleClock.prototype.copy_oud20p$ = function (key, showSeconds) {
-    return new SimpleClock(key === void 0 ? this.key : key, showSeconds === void 0 ? this.showSeconds : showSeconds);
+  SimpleClock.prototype.component3 = function () {
+    return this.logger;
+  };
+  SimpleClock.prototype.copy_tycjp1$ = function (key, showSeconds, logger) {
+    return new SimpleClock(key === void 0 ? this.key : key, showSeconds === void 0 ? this.showSeconds : showSeconds, logger === void 0 ? this.logger : logger);
   };
   SimpleClock.prototype.toString = function () {
-    return 'SimpleClock(key=' + Kotlin.toString(this.key) + (', showSeconds=' + Kotlin.toString(this.showSeconds)) + ')';
+    return 'SimpleClock(key=' + Kotlin.toString(this.key) + (', showSeconds=' + Kotlin.toString(this.showSeconds)) + (', logger=' + Kotlin.toString(this.logger)) + ')';
   };
   SimpleClock.prototype.hashCode = function () {
     var result = 0;
     result = result * 31 + Kotlin.hashCode(this.key) | 0;
     result = result * 31 + Kotlin.hashCode(this.showSeconds) | 0;
+    result = result * 31 + Kotlin.hashCode(this.logger) | 0;
     return result;
   };
   SimpleClock.prototype.equals = function (other) {
-    return this === other || (other !== null && (typeof other === 'object' && (Object.getPrototypeOf(this) === Object.getPrototypeOf(other) && (Kotlin.equals(this.key, other.key) && Kotlin.equals(this.showSeconds, other.showSeconds)))));
+    return this === other || (other !== null && (typeof other === 'object' && (Object.getPrototypeOf(this) === Object.getPrototypeOf(other) && (Kotlin.equals(this.key, other.key) && Kotlin.equals(this.showSeconds, other.showSeconds) && Kotlin.equals(this.logger, other.logger)))));
   };
-  function BoxedClock(key, showSeconds) {
+  function BoxedClock(key, showSeconds, logger) {
     Widget.call(this, key);
     this.key_ex3iuz$_0 = key;
     this.showSeconds = showSeconds;
+    this.logger = logger;
   }
   Object.defineProperty(BoxedClock.prototype, 'key', {get: function () {
     return this.key_ex3iuz$_0;
@@ -2818,12 +3322,13 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   Object.defineProperty(BoxedClock.prototype, 'initialState', {get: function () {
     return new Date();
   }});
-  function BoxedClock$initBoxData$ObjectLiteral(closure$box) {
+  function BoxedClock$initBoxData$ObjectLiteral(closure$box, this$BoxedClock) {
     this.closure$box = closure$box;
+    this.this$BoxedClock = this$BoxedClock;
     this.timeId = setInterval(getCallableRef('updateClock', function ($receiver) {
       return $receiver.updateClock_0(), Unit;
     }.bind(null, this)), 200);
-    console.log('BoxedClock: timer created');
+    this$BoxedClock.logger.log_61zpoe$('BoxedClock: timer created');
   }
   function BoxedClock$initBoxData$ObjectLiteral$updateClock$lambda(it) {
     return new Date();
@@ -2833,11 +3338,11 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   };
   BoxedClock$initBoxData$ObjectLiteral.prototype.dispose = function () {
     clearInterval(this.timeId);
-    console.log('BoxedClock: timer destroyed');
+    this.this$BoxedClock.logger.log_61zpoe$('BoxedClock: timer destroyed');
   };
   BoxedClock$initBoxData$ObjectLiteral.$metadata$ = {kind: Kind_CLASS, interfaces: [WidgetBoxData]};
   BoxedClock.prototype.initBoxData_xwlylv$ = function (box) {
-    return new BoxedClock$initBoxData$ObjectLiteral(box);
+    return new BoxedClock$initBoxData$ObjectLiteral(box, this);
   };
   function BoxedClock$render$lambda(closure$state, this$BoxedClock) {
     return function ($receiver) {
@@ -2855,20 +3360,24 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   BoxedClock.prototype.component2 = function () {
     return this.showSeconds;
   };
-  BoxedClock.prototype.copy_oud20p$ = function (key, showSeconds) {
-    return new BoxedClock(key === void 0 ? this.key : key, showSeconds === void 0 ? this.showSeconds : showSeconds);
+  BoxedClock.prototype.component3 = function () {
+    return this.logger;
+  };
+  BoxedClock.prototype.copy_tycjp1$ = function (key, showSeconds, logger) {
+    return new BoxedClock(key === void 0 ? this.key : key, showSeconds === void 0 ? this.showSeconds : showSeconds, logger === void 0 ? this.logger : logger);
   };
   BoxedClock.prototype.toString = function () {
-    return 'BoxedClock(key=' + Kotlin.toString(this.key) + (', showSeconds=' + Kotlin.toString(this.showSeconds)) + ')';
+    return 'BoxedClock(key=' + Kotlin.toString(this.key) + (', showSeconds=' + Kotlin.toString(this.showSeconds)) + (', logger=' + Kotlin.toString(this.logger)) + ')';
   };
   BoxedClock.prototype.hashCode = function () {
     var result = 0;
     result = result * 31 + Kotlin.hashCode(this.key) | 0;
     result = result * 31 + Kotlin.hashCode(this.showSeconds) | 0;
+    result = result * 31 + Kotlin.hashCode(this.logger) | 0;
     return result;
   };
   BoxedClock.prototype.equals = function (other) {
-    return this === other || (other !== null && (typeof other === 'object' && (Object.getPrototypeOf(this) === Object.getPrototypeOf(other) && (Kotlin.equals(this.key, other.key) && Kotlin.equals(this.showSeconds, other.showSeconds)))));
+    return this === other || (other !== null && (typeof other === 'object' && (Object.getPrototypeOf(this) === Object.getPrototypeOf(other) && (Kotlin.equals(this.key, other.key) && Kotlin.equals(this.showSeconds, other.showSeconds) && Kotlin.equals(this.logger, other.logger)))));
   };
   function showTime($receiver, showSeconds) {
     var obj = {};
@@ -3137,7 +3646,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   var BoxFit$scaleDown_instance;
   function Color(r, g, b, a) {
     if (a === void 0)
-      a = 0;
+      a = 1;
     this.r = r;
     this.g = g;
     this.b = b;
@@ -3704,6 +4213,8 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   _.JsApp = JsApp;
   var package$cx = _.cx || (_.cx = {});
   var package$js = package$cx.js || (package$cx.js = {});
+  var package$kotlin = package$js.kotlin || (package$js.kotlin = {});
+  package$kotlin.get_parameterNames_iwuryu$ = get_parameterNames;
   var package$ui = package$js.ui || (package$js.ui = {});
   var package$framework = package$ui.framework || (package$ui.framework = {});
   var package$widgets = package$framework.widgets || (package$framework.widgets = {});
@@ -3712,15 +4223,17 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   package$box.AbstractWidgetBox = AbstractWidgetBox;
   package$box.ReactWidgetBoxFactory = ReactWidgetBoxFactory;
   package$box.State = State;
-  Object.defineProperty(StdWidgetBox, 'Companion', {get: StdWidgetBox$Companion_getInstance});
-  var package$std = package$box.std || (package$box.std = {});
-  package$std.StdWidgetBox = StdWidgetBox;
-  package$std.StdWidgetBoxProps = StdWidgetBoxProps;
+  Object.defineProperty(DevWidgetBox, 'Companion', {get: DevWidgetBox$Companion_getInstance});
+  var package$dev = package$box.dev || (package$box.dev = {});
+  package$dev.DevWidgetBox = DevWidgetBox;
+  package$dev.DevWidgetFactory = DevWidgetFactory;
   var package$common = package$widgets.common || (package$widgets.common = {});
   package$common.Padding = Padding;
   package$common.get_padding_s8ev3n$ = get_padding;
   package$common.get_padding_yrwdxr$ = get_padding_0;
   package$common.Margin = Margin;
+  package$common.get_margin_s8ev3n$ = get_margin;
+  package$common.get_margin_yrwdxr$ = get_margin_0;
   package$common.join_iy7obj$ = join;
   package$common.Box = Box_0;
   $$importsForInline$$.react = $module$react_0;
@@ -3789,6 +4302,9 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   package$p03_hello_state.MyCounter = MyCounter;
   var package$p04_hello_box = package$examples.p04_hello_box || (package$examples.p04_hello_box = {});
   package$p04_hello_box.render = render_4;
+  package$p04_hello_box.State = State_0;
+  package$p04_hello_box.Msg = Msg;
+  package$p04_hello_box.Logger = Logger;
   package$p04_hello_box.Sample = Sample;
   package$p04_hello_box.SimpleClock = SimpleClock;
   package$p04_hello_box.BoxedClock = BoxedClock;
@@ -3835,12 +4351,12 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   Object.defineProperty(CrossAxisAlignment, 'center', {get: CrossAxisAlignment$center_getInstance});
   Object.defineProperty(CrossAxisAlignment, 'stretch', {get: CrossAxisAlignment$stretch_getInstance});
   Object.defineProperty(CrossAxisAlignment, 'baseline', {get: CrossAxisAlignment$baseline_getInstance});
-  GridColumnsSpawn.prototype.isEmpty = ClosedRange.prototype.isEmpty;
   GridColumnsSpawn.prototype.contains_mef7kx$ = ClosedRange.prototype.contains_mef7kx$;
-  GridColumn.prototype.isEmpty = ClosedRange.prototype.isEmpty;
+  GridColumnsSpawn.prototype.isEmpty = ClosedRange.prototype.isEmpty;
   GridColumn.prototype.contains_mef7kx$ = ClosedRange.prototype.contains_mef7kx$;
-  GridColumnsInterval.prototype.isEmpty = ClosedRange.prototype.isEmpty;
+  GridColumn.prototype.isEmpty = ClosedRange.prototype.isEmpty;
   GridColumnsInterval.prototype.contains_mef7kx$ = ClosedRange.prototype.contains_mef7kx$;
+  GridColumnsInterval.prototype.isEmpty = ClosedRange.prototype.isEmpty;
   GridRowsSpawn.prototype.contains_mef7kx$ = ClosedRange.prototype.contains_mef7kx$;
   GridRowsSpawn.prototype.isEmpty = ClosedRange.prototype.isEmpty;
   GridRow.prototype.contains_mef7kx$ = ClosedRange.prototype.contains_mef7kx$;
@@ -3849,7 +4365,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   GridRowInterval.prototype.isEmpty = ClosedRange.prototype.isEmpty;
   EmptyWidgetBoxData.prototype.setWidget_yybfbn$ = WidgetBoxData.prototype.setWidget_yybfbn$;
   BoxedClock$initBoxData$ObjectLiteral.prototype.setWidget_yybfbn$ = WidgetBoxData.prototype.setWidget_yybfbn$;
-  factory = StdWidgetBox$Companion_getInstance();
+  factory = DevWidgetBox$Companion_getInstance();
   topLeft = new Alignment(-1.0, -1.0);
   topCenter = new Alignment(0.0, -1.0);
   topRight = new Alignment(1.0, -1.0);
@@ -27058,8 +27574,41 @@ module.exports = function() {
       }
       return -1;
     }
+    function last_18($receiver) {
+      if ($receiver.isEmpty())
+        throw new NoSuchElementException('List is empty.');
+      return $receiver.get_za3lpa$(get_lastIndex_8($receiver));
+    }
     function singleOrNull_18($receiver) {
       return $receiver.size === 1 ? $receiver.get_za3lpa$(0) : null;
+    }
+    function takeLast_8($receiver, n) {
+      var tmp$, tmp$_0;
+      if (!(n >= 0)) {
+        var message = 'Requested element count ' + n + ' is less than zero.';
+        throw new IllegalArgumentException(message.toString());
+      }
+      if (n === 0)
+        return emptyList();
+      var size = $receiver.size;
+      if (n >= size)
+        return toList_8($receiver);
+      if (n === 1)
+        return listOf(last_18($receiver));
+      var list = ArrayList_init(n);
+      if (Kotlin.isType($receiver, RandomAccess)) {
+        tmp$ = size - 1 | 0;
+        for (var index = size - n | 0; index <= tmp$; index++)
+          list.add_11rb$($receiver.get_za3lpa$(index));
+      }
+       else {
+        tmp$_0 = $receiver.listIterator_za3lpa$(size - n | 0);
+        while (tmp$_0.hasNext()) {
+          var item = tmp$_0.next();
+          list.add_11rb$(item);
+        }
+      }
+      return list;
     }
     function reverse_8($receiver) {
       var midPoint = ($receiver.size / 2 | 0) - 1 | 0;
@@ -27205,6 +27754,15 @@ module.exports = function() {
     function coerceAtMost_2($receiver, maximumValue) {
       return $receiver > maximumValue ? maximumValue : $receiver;
     }
+    function coerceIn_2($receiver, minimumValue, maximumValue) {
+      if (minimumValue > maximumValue)
+        throw new IllegalArgumentException('Cannot coerce value to an empty range: maximum ' + maximumValue + ' is less than minimum ' + minimumValue + '.');
+      if ($receiver < minimumValue)
+        return minimumValue;
+      if ($receiver > maximumValue)
+        return maximumValue;
+      return $receiver;
+    }
     function take_9($receiver, n) {
       var tmp$;
       if (!(n >= 0)) {
@@ -27221,6 +27779,21 @@ module.exports = function() {
     }
     function map_10($receiver, transform) {
       return new TransformingSequence($receiver, transform);
+    }
+    function asIterable$lambda_8(this$asIterable) {
+      return function () {
+        return this$asIterable.iterator();
+      };
+    }
+    function Iterable$ObjectLiteral_0(closure$iterator) {
+      this.closure$iterator = closure$iterator;
+    }
+    Iterable$ObjectLiteral_0.prototype.iterator = function () {
+      return this.closure$iterator();
+    };
+    Iterable$ObjectLiteral_0.$metadata$ = {kind: Kind_CLASS, interfaces: [Iterable]};
+    function asIterable_10($receiver) {
+      return new Iterable$ObjectLiteral_0(asIterable$lambda_8($receiver));
     }
     function Serializable() {
     }
@@ -27551,6 +28124,9 @@ module.exports = function() {
     function get_js($receiver) {
       var tmp$;
       return (Kotlin.isType(tmp$ = $receiver, KClassImpl) ? tmp$ : throwCCE()).jClass;
+    }
+    function get_kotlin($receiver) {
+      return getKClass($receiver);
     }
     function KClassImpl(jClass) {
       this.jClass_1ppatx$_0 = jClass;
@@ -29557,6 +30133,9 @@ module.exports = function() {
     function get_lastIndex_9($receiver) {
       return $receiver.length - 1 | 0;
     }
+    function substring_3($receiver, range) {
+      return Kotlin.subSequence($receiver, range.start, range.endInclusive + 1 | 0).toString();
+    }
     function startsWith_1($receiver, char, ignoreCase) {
       if (ignoreCase === void 0)
         ignoreCase = false;
@@ -29601,6 +30180,14 @@ module.exports = function() {
       }
       return null;
     }
+    function indexOfAny($receiver, chars, startIndex, ignoreCase) {
+      if (startIndex === void 0)
+        startIndex = 0;
+      if (ignoreCase === void 0)
+        ignoreCase = false;
+      var tmp$, tmp$_0;
+      return (tmp$_0 = (tmp$ = findAnyOf($receiver, chars, startIndex, ignoreCase, false)) != null ? tmp$.first : null) != null ? tmp$_0 : -1;
+    }
     function lastIndexOfAny($receiver, chars, startIndex, ignoreCase) {
       if (startIndex === void 0)
         startIndex = get_lastIndex_9($receiver);
@@ -29609,12 +30196,114 @@ module.exports = function() {
       var tmp$, tmp$_0;
       return (tmp$_0 = (tmp$ = findAnyOf($receiver, chars, startIndex, ignoreCase, true)) != null ? tmp$.first : null) != null ? tmp$_0 : -1;
     }
+    function indexOf_12($receiver, char, startIndex, ignoreCase) {
+      if (startIndex === void 0)
+        startIndex = 0;
+      if (ignoreCase === void 0)
+        ignoreCase = false;
+      return ignoreCase || !(typeof $receiver === 'string') ? indexOfAny($receiver, Kotlin.charArrayOf(char), startIndex, ignoreCase) : $receiver.indexOf(String.fromCharCode(char), startIndex);
+    }
     function lastIndexOf_11($receiver, char, startIndex, ignoreCase) {
       if (startIndex === void 0)
         startIndex = get_lastIndex_9($receiver);
       if (ignoreCase === void 0)
         ignoreCase = false;
       return ignoreCase || !(typeof $receiver === 'string') ? lastIndexOfAny($receiver, Kotlin.charArrayOf(char), startIndex, ignoreCase) : $receiver.lastIndexOf(String.fromCharCode(char), startIndex);
+    }
+    function DelimitedRangesSequence(input, startIndex, limit, getNextMatch) {
+      this.input_0 = input;
+      this.startIndex_0 = startIndex;
+      this.limit_0 = limit;
+      this.getNextMatch_0 = getNextMatch;
+    }
+    function DelimitedRangesSequence$iterator$ObjectLiteral(this$DelimitedRangesSequence) {
+      this.this$DelimitedRangesSequence = this$DelimitedRangesSequence;
+      this.nextState = -1;
+      this.currentStartIndex = coerceIn_2(this$DelimitedRangesSequence.startIndex_0, 0, this$DelimitedRangesSequence.input_0.length);
+      this.nextSearchIndex = this.currentStartIndex;
+      this.nextItem = null;
+      this.counter = 0;
+    }
+    DelimitedRangesSequence$iterator$ObjectLiteral.prototype.calcNext_0 = function () {
+      if (this.nextSearchIndex < 0) {
+        this.nextState = 0;
+        this.nextItem = null;
+      }
+       else {
+        if (this.this$DelimitedRangesSequence.limit_0 > 0 && (this.counter = this.counter + 1 | 0, this.counter) >= this.this$DelimitedRangesSequence.limit_0 || this.nextSearchIndex > this.this$DelimitedRangesSequence.input_0.length) {
+          this.nextItem = new IntRange(this.currentStartIndex, get_lastIndex_9(this.this$DelimitedRangesSequence.input_0));
+          this.nextSearchIndex = -1;
+        }
+         else {
+          var match = this.this$DelimitedRangesSequence.getNextMatch_0(this.this$DelimitedRangesSequence.input_0, this.nextSearchIndex);
+          if (match == null) {
+            this.nextItem = new IntRange(this.currentStartIndex, get_lastIndex_9(this.this$DelimitedRangesSequence.input_0));
+            this.nextSearchIndex = -1;
+          }
+           else {
+            var index = match.component1(), length = match.component2();
+            this.nextItem = new IntRange(this.currentStartIndex, index - 1 | 0);
+            this.currentStartIndex = index + length | 0;
+            this.nextSearchIndex = this.currentStartIndex + (length === 0 ? 1 : 0) | 0;
+          }
+        }
+        this.nextState = 1;
+      }
+    };
+    DelimitedRangesSequence$iterator$ObjectLiteral.prototype.next = function () {
+      var tmp$;
+      if (this.nextState === -1)
+        this.calcNext_0();
+      if (this.nextState === 0)
+        throw new NoSuchElementException();
+      var result = Kotlin.isType(tmp$ = this.nextItem, IntRange) ? tmp$ : throwCCE();
+      this.nextItem = null;
+      this.nextState = -1;
+      return result;
+    };
+    DelimitedRangesSequence$iterator$ObjectLiteral.prototype.hasNext = function () {
+      if (this.nextState === -1)
+        this.calcNext_0();
+      return this.nextState === 1;
+    };
+    DelimitedRangesSequence$iterator$ObjectLiteral.$metadata$ = {kind: Kind_CLASS, interfaces: [Iterator]};
+    DelimitedRangesSequence.prototype.iterator = function () {
+      return new DelimitedRangesSequence$iterator$ObjectLiteral(this);
+    };
+    DelimitedRangesSequence.$metadata$ = {kind: Kind_CLASS, simpleName: 'DelimitedRangesSequence', interfaces: [Sequence]};
+    function rangesDelimitedBy$lambda(closure$delimiters, closure$ignoreCase) {
+      return function ($receiver, startIndex) {
+        var tmp$;
+        return (tmp$ = findAnyOf($receiver, closure$delimiters, startIndex, closure$ignoreCase, false)) != null ? to(tmp$.first, 1) : null;
+      };
+    }
+    function rangesDelimitedBy($receiver, delimiters, startIndex, ignoreCase, limit) {
+      if (startIndex === void 0)
+        startIndex = 0;
+      if (ignoreCase === void 0)
+        ignoreCase = false;
+      if (limit === void 0)
+        limit = 0;
+      if (!(limit >= 0)) {
+        var message = 'Limit must be non-negative, but was ' + limit + '.';
+        throw new IllegalArgumentException(message.toString());
+      }
+      return new DelimitedRangesSequence($receiver, startIndex, limit, rangesDelimitedBy$lambda(delimiters, ignoreCase));
+    }
+    function split_0($receiver, delimiters, ignoreCase, limit) {
+      if (ignoreCase === void 0)
+        ignoreCase = false;
+      if (limit === void 0)
+        limit = 0;
+      var $receiver_0 = asIterable_10(rangesDelimitedBy($receiver, delimiters, void 0, ignoreCase, limit));
+      var destination = ArrayList_init(collectionSizeOrDefault($receiver_0, 10));
+      var tmp$;
+      tmp$ = $receiver_0.iterator();
+      while (tmp$.hasNext()) {
+        var item = tmp$.next();
+        destination.add_11rb$(substring_3($receiver, item));
+      }
+      return destination;
     }
     var Typography_instance = null;
     function MatchGroupCollection() {
@@ -29805,7 +30494,9 @@ module.exports = function() {
     package$collections.first_2p1efm$ = first_18;
     package$collections.firstOrNull_2p1efm$ = firstOrNull_18;
     package$collections.indexOf_2ws7j4$ = indexOf_8;
+    package$collections.last_2p1efm$ = last_18;
     package$collections.singleOrNull_2p1efm$ = singleOrNull_18;
+    package$collections.takeLast_yzln2o$ = takeLast_8;
     package$collections.toList_7wnvza$ = toList_8;
     package$collections.reverse_vvxzk3$ = reverse_8;
     package$collections.toCollection_5cfyqp$ = toCollection_8;
@@ -29820,10 +30511,12 @@ module.exports = function() {
     package$ranges.downTo_dqglrj$ = downTo_4;
     package$ranges.reversed_zf1xzc$ = reversed_9;
     package$ranges.coerceAtMost_dqglrj$ = coerceAtMost_2;
+    package$ranges.coerceIn_e4yvb3$ = coerceIn_2;
     var package$sequences = package$kotlin.sequences || (package$kotlin.sequences = {});
     package$sequences.Sequence = Sequence;
     package$sequences.take_wuwhe2$ = take_9;
     package$sequences.map_z5avom$ = map_10;
+    package$sequences.asIterable_veqyi0$ = asIterable_10;
     package$text.get_lastIndex_gw00vp$ = get_lastIndex_9;
     package$text.get_indices_gw00vp$ = get_indices_9;
     package$kotlin.Serializable = Serializable;
@@ -29844,6 +30537,7 @@ module.exports = function() {
     package$text.Appendable = Appendable;
     package$text.StringBuilder = StringBuilder;
     package$js.get_js_1yb8b7$ = get_js;
+    package$js.get_kotlin_2sk2mx$ = get_kotlin;
     var package$reflect = package$kotlin.reflect || (package$kotlin.reflect = {});
     var package$js_0 = package$reflect.js || (package$reflect.js = {});
     var package$internal = package$js_0.internal || (package$js_0.internal = {});
@@ -29957,10 +30651,14 @@ module.exports = function() {
     package$text.trimStart_wqw3xr$ = trimStart_2;
     package$text.trimEnd_wqw3xr$ = trimEnd_2;
     package$text.trim_gw00vp$ = trim_3;
+    package$text.substring_i511yc$ = substring_3;
     package$text.startsWith_sgbm27$ = startsWith_1;
     package$text.endsWith_sgbm27$ = endsWith_0;
+    package$text.indexOfAny_junqau$ = indexOfAny;
     package$text.lastIndexOfAny_junqau$ = lastIndexOfAny;
+    package$text.indexOf_8eortd$ = indexOf_12;
     package$text.lastIndexOf_8eortd$ = lastIndexOf_11;
+    package$text.split_o64adg$ = split_0;
     package$text.MatchGroupCollection = MatchGroupCollection;
     MatchResult.Destructured = MatchResult$Destructured;
     package$text.MatchResult = MatchResult;

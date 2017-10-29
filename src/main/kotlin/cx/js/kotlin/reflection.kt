@@ -28,5 +28,6 @@ val JsClass<*>.parameterNames: List<String>
         argsStart + 1,
         body.indexOf(')', argsStart)
     )
-    return argsString.split(',').map { it.trim() }
+    if (argsString.isEmpty()) return listOf()
+    else return argsString.split(',').map { it.trim() }
   }
