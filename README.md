@@ -553,6 +553,10 @@ abstract class Observer<T : Any>(
 
 ![](images/01-lifecycle.png)
 
+Для сравнения, жизненный цикл компонента React:
+
+![](images/02-react-lifecycle.png)
+
 ### Реализация и React dev tools
 
 Как было сказано выше, виджеты добавляются в дерево элементов React посредством обертки (`Box`).
