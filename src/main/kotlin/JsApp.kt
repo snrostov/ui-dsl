@@ -1,4 +1,5 @@
 
+import cx.js.ui.framework.widgets.RenderObject
 import cx.js.ui.framework.widgets.common.Box
 import cx.js.ui.framework.widgets.common.actions.Button
 import cx.js.ui.framework.widgets.common.layout.Column
@@ -61,7 +62,7 @@ class JsApp : Widget<String>("app") {
   }
 
   companion object {
-    val samples = mapOf(
+    val samples = mapOf<String, () -> RenderObject>(
         "hello world" to { examples.p00_hello_world.render() },
         "hello widgets" to { examples.p01_hello_widgets.render() },
         "hello widget body" to { examples.p02_hello_widget_body.render() },

@@ -21,8 +21,8 @@ inline fun singleOrNull(items: WidgetBody)
 inline fun elementsArray(items: WidgetBody)
     = ElementBuilder(items).array
 
-inline fun elements(items: WidgetBody): ReactOneOrMoreElement?
-    = ElementBuilder(items).asNoneOrMoreElement
+inline fun elements(items: WidgetBody): RenderObject?
+    = ElementBuilder(items).singleOrNull
 
 fun elements(): ReactOneOrMoreElement?
     = null

@@ -6,7 +6,7 @@ import cx.js.ui.framework.widgets.RenderObject
  * User defined composition of [BasicElement]s, that composed depengind on the state [S].
  * State stored outside of component (in [WidgetBox]).
  */
-abstract class Widget<S : Any>(val key: Any?) : RenderObject {
+abstract class Widget<S : Any>(open val key: Any?) : RenderObject {
   private lateinit var _box: WidgetBox<S>
 
   val box: WidgetBox<S>
