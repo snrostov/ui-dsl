@@ -278,7 +278,7 @@ fun main(args: Array<String>) {
 }
 ```
 
-Однако такой синтаксис не поддерживается котлином на данный момент (но, сообщение "The syntax is reserved for future use; to call a refernce enclose it in parenthess (foo::bar(args) внушает надежду).
+Однако такой синтаксис не поддерживается котлином на данный момент (но, сообщение "The syntax is reserved for future use; to call a reference enclose it inparentheses `foo::bar(args)`" внушает надежду).
 
 В данный момент вместо этого можно было бы писать что то вроде:
 
