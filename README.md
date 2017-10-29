@@ -71,7 +71,7 @@ class HomeView : ReactDOMComponent<HomeView.Props, HomeView.State>() {
 
 ## Альтернативное решение
 
-Начнем с примера компонента без состояни и дочерних элементов:
+Начнем с примера компонента без состояни и дочерних элементов ([просмотреть в браузере](https://htmlpreview.github.io/?https://raw.githubusercontent.com/snrostov/ui-dsl/master/index.html#hello-widgets)):
 
 ```kotlin
 fun main(args: Array<String>) {
@@ -105,7 +105,7 @@ class Header(key: Any?, val text: String) : StatelessWidget(key) {
 
 Реплизовано это следущим образом: по конвенции, последним параметром конструктора виджета который содержит дочерние элементы должна быть лямбда `val body: WidgetBody`. (`typealias WidgetBody = WidgetsListBuilder.() -> Unit`). При этом сам `WidgetBody` можно также добавить в `WidgetsListBuilder` (будет вызывана соотвтсвующая функция).
 
-Пример:
+Пример ([просмотреть в браузере](https://htmlpreview.github.io/?https://raw.githubusercontent.com/snrostov/ui-dsl/master/index.html#hello-widget-body)):
 
 ```kotlin
 fun main(args: Array<String>) {
@@ -320,7 +320,7 @@ abstract class WidgetsListBuilder {
 
 ### State
 
-Пример компонента c состоянием. 
+Пример компонента c состоянием ([просмотреть в браузере](https://htmlpreview.github.io/?https://raw.githubusercontent.com/snrostov/ui-dsl/master/index.html#hello-state)): 
 
 ```kotlin
 fun main(args: Array<String>) {
@@ -389,7 +389,7 @@ class MyCounter(key: String, override val initialState: Int) : Widget<Int>(key) 
 
 ### BoxData
 
-Иногда возникает необходимость создать что-то при создании виджета, и удалить при удалении виджета. Например, для реализации виджета часов необходимо создать таймер. Виджет мог бы выглядеть следующим образом:
+Иногда возникает необходимость создать что-то при создании виджета, и удалить при удалении виджета. Например, для реализации виджета часов необходимо создать таймер. Виджет мог бы выглядеть следующим образом ([просмотреть в браузере](https://htmlpreview.github.io/?https://raw.githubusercontent.com/snrostov/ui-dsl/master/index.html#hello-box)):
 
 ```kotlin
 class SimpleClock(
@@ -424,7 +424,7 @@ class SimpleClock(
 
 Важно помнить отличие виджетов от компонентов: сам виджет будет создан при вызове `render` дочернего компонета и может быть не добавлен в дерево элементов `React`. Для того чтобы провести инициализацию только после добавления в дерево необходимо вызывать переопределить `init`. Аналагично методу `init`, `dispose` вызывается при удалении. После вызоыва `dispose` виджет не может быть использован повторно.
 
-Однако, при измении параметров виджета (`Props`), сам виджет будет пересоздан, что повлечет за собой пересоздание таймера. В подходе `React`, `Props` хранятся отдельно от компонента, поэтому у компонента есть возможность обновлять свои данные при обновлении `Props`. В подходе с виджетами такая возможность также есть, но ее реализация выглядит иначе:
+Однако, при измении параметров виджета (`Props`), сам виджет будет пересоздан, что повлечет за собой пересоздание таймера. В подходе `React`, `Props` хранятся отдельно от компонента, поэтому у компонента есть возможность обновлять свои данные при обновлении `Props`. В подходе с виджетами такая возможность также есть, но ее реализация выглядит иначе ([просмотреть в браузере](https://htmlpreview.github.io/?https://raw.githubusercontent.com/snrostov/ui-dsl/master/index.html#hello-box)):
 
 ```kotlin
 class Clock(
