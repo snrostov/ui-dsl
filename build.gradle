@@ -1,0 +1,70 @@
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven { url 'http://dl.bintray.com/kotlin/kotlin-eap-1.2' }
+        maven { url 'http://dl.bintray.com/kotlin/dokka' }
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+
+    ext {
+        kotlinVersion = '1.2.0-beta-88'
+        nodeVersion = '6.11.3'
+        qunitjsVersion = '2.4.0'
+        htmlVersion = "0.6.2"
+        ktorVersion = "0.3.0"
+        squashVersion = "0.2.2"
+        libraries = [
+                junit               : "junit:junit:4.12",
+                kotlin_stdlib       : "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion",
+                kotlin_stdlib_common: "org.jetbrains.kotlin:kotlin-stdlib-common:$kotlinVersion",
+                kotlin_stdlib_js    : "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlinVersion",
+                kotlin_test         : "org.jetbrains.kotlin:kotlin-test:$kotlinVersion",
+                kotlin_test_common  : "org.jetbrains.kotlin:kotlin-test-common:$kotlinVersion",
+                kotlin_test_js      : "org.jetbrains.kotlin:kotlin-test-js:$kotlinVersion",
+        ]
+    }
+
+    dependencies {
+        classpath 'com.moowork.gradle:gradle-node-plugin:1.2.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+    }
+}
+
+apply plugin: 'kotlin2js'
+apply plugin: 'kotlin-dce-js'
+apply plugin: 'com.moowork.node'
+
+repositories {
+    maven { url "https://dl.bintray.com/kotlin/kotlinx.html" }
+    maven { url 'http://dl.bintray.com/kotlin/kotlin-eap-1.2' }
+    maven { url 'http://dl.bintray.com/kotlin/kotlin-eap-1.1' }
+    mavenCentral()
+}
+
+dependencies {
+    compile libraries.kotlin_stdlib_js
+//    testCompile project(':js:cx.js.ui')
+}
+
+[compileKotlin2Js, compileTestKotlin2Js]*.configure {
+    kotlinOptions.moduleKind = "umd"
+    kotlinOptions.sourceMap = true
+    kotlinOptions.sourceMapEmbedSources = "always"
+}
+
+task karma(type: NpmTask, dependsOn: [yarn_install, runDceKotlinJs]) {
+    args = ["run", "test"]
+}
+
+task buildBundle(type: NpmTask, dependsOn: [yarn_install, runDceKotlinJs]) {
+    args = ["run", "bundle"]
+}
+
+assemble.dependsOn buildBundle
+
+kotlin {
+    experimental {
+        coroutines "enable"
+    }
+}
