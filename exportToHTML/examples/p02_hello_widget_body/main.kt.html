@@ -19,36 +19,35 @@ main.kt</FONT>
 <pre>
 <a name="l1"><span class="ln">1    </span></a><span class="s0">package </span><span class="s1">examples.p02_hello_widget_body 
 <a name="l2"><span class="ln">2    </span></a> 
-<a name="l3"><span class="ln">3    </span></a>import cx.js.ui.framework.widgets.common.Box 
-<a name="l4"><span class="ln">4    </span></a>import cx.js.ui.framework.widgets.common.Text 
-<a name="l5"><span class="ln">5    </span></a>import cx.js.ui.framework.widgets.common.layout.Column 
-<a name="l6"><span class="ln">6    </span></a>import cx.js.ui.framework.widgets.common.layout.Row 
-<a name="l7"><span class="ln">7    </span></a>import cx.ui.framework.WidgetBody 
-<a name="l8"><span class="ln">8    </span></a>import cx.ui.framework.widget.StatelessWidget 
-<a name="l9"><span class="ln">9    </span></a> 
-<a name="l10"><span class="ln">10   </span></a></span><span class="s0">fun </span><span class="s1">render() = Column { 
-<a name="l11"><span class="ln">11   </span></a>  +Section(</span><span class="s2">&quot;s1&quot;</span><span class="s1">, </span><span class="s2">&quot;About&quot;</span><span class="s1">) { 
-<a name="l12"><span class="ln">12   </span></a>    +</span><span class="s2">&quot;About contents&quot;</span><span class="s1"> 
-<a name="l13"><span class="ln">13   </span></a>  } 
-<a name="l14"><span class="ln">14   </span></a> 
-<a name="l15"><span class="ln">15   </span></a>  +Section(</span><span class="s2">&quot;s2&quot;</span><span class="s1">, </span><span class="s2">&quot;Docs&quot;</span><span class="s1">) { 
-<a name="l16"><span class="ln">16   </span></a>    +</span><span class="s2">&quot;Docs contents&quot;</span><span class="s1"> 
-<a name="l17"><span class="ln">17   </span></a>  } 
-<a name="l18"><span class="ln">18   </span></a>} 
-<a name="l19"><span class="ln">19   </span></a> 
-<a name="l20"><span class="ln">20   </span></a></span><span class="s0">class </span><span class="s1">Section(key: Any?, </span><span class="s0">val </span><span class="s1">title: String, </span><span class="s0">val </span><span class="s1">body: WidgetBody) : StatelessWidget(key) { 
-<a name="l21"><span class="ln">21   </span></a>  override </span><span class="s0">fun </span><span class="s1">render() = Box { 
-<a name="l22"><span class="ln">22   </span></a>    +Header(</span><span class="s2">&quot;title&quot;</span><span class="s1">, title) 
-<a name="l23"><span class="ln">23   </span></a>    +body 
-<a name="l24"><span class="ln">24   </span></a>  } 
-<a name="l25"><span class="ln">25   </span></a>} 
-<a name="l26"><span class="ln">26   </span></a> 
-<a name="l27"><span class="ln">27   </span></a></span><span class="s0">class </span><span class="s1">Header(key: Any?, </span><span class="s0">val </span><span class="s1">text: String) : StatelessWidget(key) { 
-<a name="l28"><span class="ln">28   </span></a>  override </span><span class="s0">fun </span><span class="s1">render() = Row { 
-<a name="l29"><span class="ln">29   </span></a>    +Text(fontSize = </span><span class="s3">20.0</span><span class="s1">) { 
-<a name="l30"><span class="ln">30   </span></a>      +text 
-<a name="l31"><span class="ln">31   </span></a>    } 
-<a name="l32"><span class="ln">32   </span></a>  } 
-<a name="l33"><span class="ln">33   </span></a>}</span></pre>
+<a name="l3"><span class="ln">3    </span></a>import cx.js.ui.framework.widgets.common.Text 
+<a name="l4"><span class="ln">4    </span></a>import cx.js.ui.framework.widgets.common.layout.Column 
+<a name="l5"><span class="ln">5    </span></a>import cx.js.ui.framework.widgets.common.layout.Row 
+<a name="l6"><span class="ln">6    </span></a>import cx.ui.framework.WidgetBody 
+<a name="l7"><span class="ln">7    </span></a>import cx.ui.framework.widget.StatelessWidget 
+<a name="l8"><span class="ln">8    </span></a> 
+<a name="l9"><span class="ln">9    </span></a></span><span class="s0">fun </span><span class="s1">render() = Column { 
+<a name="l10"><span class="ln">10   </span></a>  +Section(</span><span class="s2">&quot;s1&quot;</span><span class="s1">, </span><span class="s2">&quot;About&quot;</span><span class="s1">) { 
+<a name="l11"><span class="ln">11   </span></a>    +</span><span class="s2">&quot;About contents&quot;</span><span class="s1"> 
+<a name="l12"><span class="ln">12   </span></a>  } 
+<a name="l13"><span class="ln">13   </span></a> 
+<a name="l14"><span class="ln">14   </span></a>  +Section(</span><span class="s2">&quot;s2&quot;</span><span class="s1">, </span><span class="s2">&quot;Docs&quot;</span><span class="s1">) { 
+<a name="l15"><span class="ln">15   </span></a>    +</span><span class="s2">&quot;Docs contents&quot;</span><span class="s1"> 
+<a name="l16"><span class="ln">16   </span></a>  } 
+<a name="l17"><span class="ln">17   </span></a>} 
+<a name="l18"><span class="ln">18   </span></a> 
+<a name="l19"><span class="ln">19   </span></a></span><span class="s0">class </span><span class="s1">Section(key: Any?, </span><span class="s0">val </span><span class="s1">title: String, </span><span class="s0">val </span><span class="s1">body: WidgetBody) : StatelessWidget(key) { 
+<a name="l20"><span class="ln">20   </span></a>  override </span><span class="s0">fun </span><span class="s1">render() = Column { 
+<a name="l21"><span class="ln">21   </span></a>    +Header(</span><span class="s2">&quot;title&quot;</span><span class="s1">, title) 
+<a name="l22"><span class="ln">22   </span></a>    +body 
+<a name="l23"><span class="ln">23   </span></a>  } 
+<a name="l24"><span class="ln">24   </span></a>} 
+<a name="l25"><span class="ln">25   </span></a> 
+<a name="l26"><span class="ln">26   </span></a></span><span class="s0">class </span><span class="s1">Header(key: Any?, </span><span class="s0">val </span><span class="s1">text: String) : StatelessWidget(key) { 
+<a name="l27"><span class="ln">27   </span></a>  override </span><span class="s0">fun </span><span class="s1">render() = Row { 
+<a name="l28"><span class="ln">28   </span></a>    +Text(fontSize = </span><span class="s3">20.0</span><span class="s1">) { 
+<a name="l29"><span class="ln">29   </span></a>      +text 
+<a name="l30"><span class="ln">30   </span></a>    } 
+<a name="l31"><span class="ln">31   </span></a>  } 
+<a name="l32"><span class="ln">32   </span></a>}</span></pre>
 </body>
 </html>
