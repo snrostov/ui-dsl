@@ -1,3 +1,4 @@
+
 import cx.js.ui.framework.widgets.common.Box
 import cx.js.ui.framework.widgets.common.actions.Button
 import cx.js.ui.framework.widgets.common.layout.Column
@@ -6,7 +7,6 @@ import cx.js.ui.framework.widgets.common.padding
 import cx.js.ui.framework.widgets.dom.render
 import cx.ui.framework.widget.Widget
 import flutter.Border
-import org.w3c.dom.HTMLIFrameElement
 import kotlin.browser.document
 
 fun main(args: Array<String>) {
@@ -50,8 +50,8 @@ class JsApp : Widget<String>("app") {
 
     val num = samples.keys.indexOf(state)
     val packageName = state.replace(" ","_")
-    val src = "exportToHTML/examples/p0${num}_$packageName/main.kt.html"
-    (document.getElementById("src") as HTMLIFrameElement).src = src
+    val src = "https://raw.githubusercontent.com/snrostov/ui-dsl/master/exportToHTML/examples/p0${num}_$packageName/main.kt.html"
+    showSources(src)
   }
 
   fun showSample(id: String) {

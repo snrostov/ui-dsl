@@ -10,14 +10,35 @@
             margin: 10px;
         }
     </style>
+    <script>
+        function showSources(url) {
+            document.getElementById("src").innerHTML = "...";
+
+            fetch(url).then(function (response) {
+                return response.text();
+            }).then(function (text) {
+                document.getElementById("srcStyles").innerHTML =
+                    '<style>' + strBetween(text, '<style type="text/css">', '</style>') + "</style>";
+                document.getElementById("src").innerHTML = strBetween(text, '<pre>', '</pre>');
+            })
+        }
+
+        function strBetween(str, start, end) {
+            const starti = str.indexOf(start);
+            const endi = str.indexOf(end);
+            return str.substring(starti + start.length, endi)
+        }
+    </script>
 </head>
 <body>
 <div id="content">
     Loading...
+
 </div>
 
-<iframe id="src" src="exportToHTML/examples/p00_hello_world/main.kt.html"
-style="border: 0; width: 100%; height: 3000px"></iframe>
+<div id="srcStyles"></div>
+<pre id="src"></pre>
+
 <script type="text/javascript" src="build/bundle.js"></script>
 </body>
 </html>
