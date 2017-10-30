@@ -491,7 +491,7 @@ abstract class Observer<T : Any>(
 }
 ```
 
-В последнем примере появляется `UNCHECKED_CAST`, из за того что функция setWidget должна принимать `This` тип виджета, что невозможно одновременно с параметритизированными типами. Для этого случая, если специальный класс `BoxedWidget` с дополнительным параметром `D` - `BoxDataType`) и методом `Widget.updateBoxData(boxData: D)`, который необходимо переопредлить в коннкретном классе виджета:
+В последнем примере появляется `UNCHECKED_CAST`, из за того что функция setWidget должна принимать `This` тип виджета, что невозможно одновременно с параметритизированными типами. Для этого случая, есть специальный класс - `BoxedWidget` с дополнительным параметром `D` (`BoxDataType`) и методом `Widget.updateBoxData(boxData: D)`, который необходимо переопредлить в коннкретном классе виджета:
 
 ```kotlin
 abstract class Observer<T : Any>(
@@ -501,13 +501,13 @@ abstract class Observer<T : Any>(
   override val initialState: T = observable.snapshot
 
  /**
-  * Вызывается при добавления виджета в дерево, в случае если `BoxData` не существует 
+  * Вызывается при добавлении виджета в дерево, в случае если `BoxData` не существует 
   */
   override fun initBoxData(box: WidgetBox<T>): WidgetBoxData
       = BoxData(box, observable)
 
   /**
-   * Вызывается при добавления виджета в дерева, в случае если `BoxData` уже существует 
+   * Вызывается при добавлении виджета в дерево, в случае если `BoxData` уже существует 
    */
   override protected fun updateBoxData(boxData: BoxData<T>) {
     boxData.observable = observable
